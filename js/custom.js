@@ -131,6 +131,12 @@ var access_portals_list = [
         "link": "https://kido.schooldiary.me/Login",
         "logo": "images/kv.png",
         "desc": "Login to manage your pod and communicate with parents.",
+    },
+    {
+        "name": "Kido App(School Diary)",
+        "link": "https://kido.schooldiary.me/Login",
+        "logo": "images/kido_logo.png",
+        "desc": "Login to manage your pod and communicate with parents.",
     }    
 ];
 
