@@ -82,25 +82,7 @@
     var user =  local_get("logged_user");
     // console.log(user);
     // var filter = JSON.stringify({"user_id":user.id});
-
-
-    function updt_insp_tbl() {
-
-        var filter = JSON.stringify({"user_id":user.id});
-        var inspects = JSON.parse(requester(server,"POST",{'api':'get_user_inspect','filter':filter}));
-        $("#inspect_trs").empty();
-        var i = 1;
-        var trs = "";
-        $.each(inspects, function (k, v) {
-            if(v.status == 1 || v.status == 2){
-                trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+v.added_on+'</td> <td>'+statuses[v.status]+'</td><td> <a href="#user_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
-                i++;
-            }
-        });
-        $("#inspect_trs").append(trs);
-    }
-
-    updt_insp_tbl();
+    teach_insp_tbl();
 
     $(document).ready( function () {
 

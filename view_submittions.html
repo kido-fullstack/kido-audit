@@ -67,40 +67,51 @@
         var user = local_get("logged_user");
         var clusters = user.clutrs;
 
-        var clus_ids = [];
-        $.each(clusters, function (k, v) {
-            clus_ids.push(v["cluster_id"]);
-        });
-        $("#team").val(user.team);
+        if(user.level == 6){
+            var filter = JSON.stringify({"user_id":user.id});
+            var user_dets = JSON.parse(requester(server,"POST",{'api':'get_same_nursery_users','filter':filter}));
+            var trs = "";
+            console.log(user_dets);
+            $.each(user_dets, function (k, v) {
+                trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td></tr>';
+            });
+            $('#user_list').find("tbody").append(trs);
+            $('#user_list').DataTable();
+        }else{
 
-        var filter = JSON.stringify({"cluster_id":clus_ids});
-        var nurseries = JSON.parse(requester(server,"POST",{'api':'get_nursery','filter':filter}));
-        var nurs = "";
-        var nrsry_ids = [];
-        $.each(nurseries, function (k, v) {
-            nurs += "<li> <input type='checkbox' class='nursery_checked' value='"+v.id+"'>  "+v.name+"</li>";
-            nrsry_ids.push(v.id);
-        });
-        $("#nurs_list").append(nurs);
+            var clus_ids = [];
+            $.each(clusters, function (k, v) {
+                clus_ids.push(v["cluster_id"]);
+            });
+            $("#team").val(user.team);
 
-        var filter = JSON.stringify({"nursery_id":nrsry_ids});
-        var user_nurs = JSON.parse(requester(server,"POST",{'api':'get_user_nursery','filter':filter}));
-        var user_ids = [];
-        $.each(user_nurs, function (k, v) {
-            user_ids.push(v.user_id);
-        });
+            var filter = JSON.stringify({"cluster_id":clus_ids});
+            var nurseries = JSON.parse(requester(server,"POST",{'api':'get_nursery','filter':filter}));
+            var nurs = "";
+            var nrsry_ids = [];
+            $.each(nurseries, function (k, v) {
+                nurs += "<li> <input type='checkbox' class='nursery_checked' value='"+v.id+"'>  "+v.name+"</li>";
+                nrsry_ids.push(v.id);
+            });
+            $("#nurs_list").append(nurs);
 
-        var filter = JSON.stringify({"id":user_ids});
-        var user_dets = JSON.parse(requester(server,"POST",{'api':'get_users','filter':filter}));
-        var trs = "";
-        $.each(user_dets, function (k, v) {
-            trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td></tr>';
-        });
-        $('#user_list').find("tbody").append(trs);
-        $('#user_list').DataTable();
+            var filter = JSON.stringify({"nursery_id":nrsry_ids});
+            var user_nurs = JSON.parse(requester(server,"POST",{'api':'get_user_nursery','filter':filter}));
+            var user_ids = [];
+            $.each(user_nurs, function (k, v) {
+                user_ids.push(v.user_id);
+            });
 
+            var filter = JSON.stringify({"id":user_ids});
+            var user_dets = JSON.parse(requester(server,"POST",{'api':'get_users','filter':filter}));
+            var trs = "";
+            $.each(user_dets, function (k, v) {
+                trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td></tr>';
+            });
+            $('#user_list').find("tbody").append(trs);
+            $('#user_list').DataTable();
 
-
+        }
 
 //------------------------------------- EDIT FORM / NEW FORM ----------------------------------
 

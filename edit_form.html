@@ -121,7 +121,7 @@
                             <tr>
                                 <th class="border-top-0">Nursery</th>
                                 <th class="border-top-0">Email</th>
-                                <th class="border-top-0">Sent Before</th>
+                                <!-- <th class="border-top-0">Sent Before</th> -->
                                 <th class="border-top-0">Select All <input type="checkbox" class="sel_all" > </th>
                             </tr>
                         </thead>
@@ -204,7 +204,7 @@ $( "#due_date" ).datepicker({
 
         parseInt(inspects[0]['submit_after_due_date']) ? $('#allow_after_dd').prop('checked', true) : false;
 
-        $("#inspect_title").attr("form_id",form_id);
+        $("#assign_users").attr("form_id",form_id);
         $('#user_list').DataTable();
 
     }else{

@@ -43,7 +43,9 @@ var userLevels = {
     1 : "admin",
     2 : "country-admin", 
     3 : "cluster-admin", 
-    4 : "teachers"
+    4 : "teachers",
+    5 : "LPM",
+    6 : "PRM"
 }
 //-------------------------------COMMON FUNCTIONS----------------------
 
@@ -202,7 +204,7 @@ $(function() {
 
     $(document).on('click','#assign_users',function(){
         var users = {};
-        var form_id = $("#inspect_title").attr("form_id");
+        var form_id = $("#assign_users").attr("form_id");
         $("#user_trs").find("input:checked").each(function() {
             // users.push($(this).val());
             users[$(this).val()] = $(this).closest("tr").find(".usr_email").text();
@@ -242,12 +244,12 @@ $(function() {
             swal({  title: 'Error',type:"error",text: err});
         }else{
             var data = {'api':'save_inspect','content':fbuilder.formData,"title":title,"due_date":due_date,"submit_after_due_date":allow_after_dd,"schedule":schedule,"team":team};
-            if($("#inspect_title").attr("form_id")){
-                data["id"] = $("#inspect_title").attr("form_id");
+            if($("#assign_users").attr("form_id")){
+                data["id"] = $("#assign_users").attr("form_id");
             }
             var insp_id = requester(server,"POST",data);
             if(parseInt(insp_id)){
-                $("#inspect_title").attr("form_id",insp_id);
+                $("#assign_users").attr("form_id",insp_id);
                 $("#modal_btn").trigger("click");
             }else{
                 alert("Form has errors.");
@@ -259,6 +261,27 @@ $(function() {
 
         $(this).closest("table").find("input[type=checkbox]").prop('checked', $(this).prop('checked'));
 
+    });
+
+
+    $(document).on('click','.send_inspect',function(){
+
+        var user = local_get('logged_user');
+        // console.log(form_id);
+        $("#assign_users").attr('form_id',$(this).attr('form_id'));
+        if(user.level == 6){
+            var filter = JSON.stringify({"user_id":user.id});
+            var user_dets = JSON.parse(requester(server,"POST",{'api':'get_same_nursery_users','filter':filter}));
+            var trs = "";
+            $.each(user_dets, function (k, v) {
+                trs += '<tr><td>'+v.name+'</td> <td class="usr_email">'+v.email+'</td><td><input type="checkbox" value="'+v.id+'"></td></tr>';
+            });
+            $("#user_trs").empty().append(trs);
+            $('#user_list').DataTable();
+        }else{
+            updt_usr_tbl();
+        }
+        $("#modal_btn").trigger("click");
     });
 
 });
@@ -363,8 +386,10 @@ function updt_usr_tbl() {
     var filter = JSON.stringify({"id":user_ids});
     var user_dets = JSON.parse(requester(server,"POST",{'api':'get_users','filter':filter}));
     var trs = "";
+    // console.log(user_dets);
     $.each(user_dets, function (k, v) {
-        trs += '<tr><td>'+v.name+'</td> <td class="usr_email">'+v.email+'</td><td usr="'+v.id+'" >No</td><td><input type="checkbox" value="'+v.id+'"></td></tr>';
+        // trs += '<tr><td>'+v.name+'</td> <td class="usr_email">'+v.email+'</td><td><input type="checkbox" value="'+v.id+'"></td></tr>';
+        trs += '<tr><td>'+v.name+'</td> <td class="usr_email">'+v.email+'</td><td><input type="checkbox" value="'+v.id+'"></td></tr>';
     });
     $("#user_trs").append(trs);
     $('#user_list').DataTable();
@@ -500,9 +525,31 @@ function updt_insp_tbl() {
     $.each(inspects, function (k, v) {
         // var stat = new Date(v.due_date) < new Date() ? "Missed" : "Active";
         var sch = scheduleType[v.schedule] || "Not set";
-        trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+sch+'</td><td> <a href="#edit_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
+        var edt_opt = user.level == 6 ? '' : '<a href="#edit_form" onclick="form_id='+v.id+';" >  Edit </a>'; // Edit not allowed for PRM
+        trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+sch+'</td>'
+        +' <td class="tab_action">'
+        + edt_opt
+        +' <a href="#view_submittions" onclick="form_id='+v.id+';" >  View Submissions </a>'
+        +' <span form_id="'+v.id+'" class="send_inspect">Send</span></td>'
+        +' </tr>';
         // trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+v.due_date+'</td> <td>'+v.assigned_to+'</td> <td>'+stat+'</td><td>'+sch+'</td><td> <a href="#edit_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
         i++;
+    });
+    $("#inspect_trs").append(trs);
+}
+
+function teach_insp_tbl() {
+
+    var filter = JSON.stringify({"user_id":user.id});
+    var inspects = JSON.parse(requester(server,"POST",{'api':'get_user_inspect','filter':filter}));
+    $("#inspect_trs").empty();
+    var i = 1;
+    var trs = "";
+    $.each(inspects, function (k, v) {
+        if(v.status == 1 || v.status == 2){
+            trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+v.added_on+'</td> <td>'+statuses[v.status]+'</td><td> <a href="#user_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
+            i++;
+        }
     });
     $("#inspect_trs").append(trs);
 }
@@ -1306,7 +1353,7 @@ $(document).on('click','#create_new_user',function(){
     // var nursery_name = $("#nursery_name").val();
     // var country = $("#country").val();
     var country = user.country;
-    var level = "4";
+    var level = $("#level").val();
     var status = $("#status").val();
     var err = "";
 
