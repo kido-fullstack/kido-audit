@@ -49,6 +49,7 @@ small{color: #bbb;}
         $.each(mnul_vals, function (k, v) {
             var elem = $("[ind='" + k + "']");
             var lnk_val = manula_pre+v.value+kv_check;
+            console.log(lnk_val);
             elem.attr("lnk",lnk_val);
             elem.addClass("lnk_view");
             // var lnk_val = "https://kandelaschools.com/"+v.value;
