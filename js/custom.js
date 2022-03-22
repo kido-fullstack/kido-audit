@@ -1878,7 +1878,7 @@ $(document).on('click','.lnk_view',function(){
 
     // var temp = $("#target_out").contents().find(".navbar navbar-fixed-top").html();
     // $('#target_out').contents().find('html').html("<h1 style='text-align: center;'>This IS an iframe</h1>");
-    $("#target_out").empty();
+    // $("#target_out").empty();
 
     // console.log($('#target_out').contents().find('html').length);lnk_view check_link
 
