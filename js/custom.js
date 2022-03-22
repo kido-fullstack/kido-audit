@@ -139,6 +139,12 @@ var access_portals_list = [
         "link": "https://kido.schooldiary.me/Login",
         "logo": "images/kido_logo.png",
         "desc": "Login to manage your pod and communicate with parents.",
+    },
+    {
+        "name": "KidoschoolBOT",
+        "link": "https://kidoschool.gyde.ai/#/login",
+        "logo": "images/kido_logo.png",
+        "desc": "Login to complete child assessments and view reports.",
     }    
 ];
 
