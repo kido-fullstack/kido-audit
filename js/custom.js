@@ -1900,6 +1900,11 @@ $(document).on('click','.lnk_view',function(){
 
     // console.log("https://www.kandelaschools.com/user_sessions/"+user.id+".txt");
 
+    $.get("https://www.kandelaschools.com/cookie.php", function (resp){
+
+    
+    });
+
     $.get("https://www.kandelaschools.com/user_sessions/"+user.id+".txt", function (response){
         // setCookie("Manula_App",response,1);
         // https://www.kandelaschools.com/kido-education-ltd-operations-manual-safeguarding
