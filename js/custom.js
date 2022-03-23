@@ -1902,7 +1902,7 @@ $(document).on('click','.lnk_view',function(){
 
     $.get("https://www.kandelaschools.com/cookie.php", function (resp){
 
-    
+        console.log(resp);
     });
 
     $.get("https://www.kandelaschools.com/user_sessions/"+user.id+".txt", function (response){
