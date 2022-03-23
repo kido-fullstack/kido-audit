@@ -1871,10 +1871,21 @@ $(document).on('click','#reject-data-btn',function(){
 //-----------approve cluster/nursery js end -----------------------
 
 
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
 
 $(document).on('click','.lnk_view',function(){
 
     var lnk = $(this).attr("lnk");
+    var user = local_get("logged_user");
 
     // var temp = $("#target_out").contents().find(".navbar navbar-fixed-top").html();
     // $('#target_out').contents().find('html').html("<h1 style='text-align: center;'>This IS an iframe</h1>");
@@ -1884,7 +1895,20 @@ $(document).on('click','.lnk_view',function(){
 
     // $('#link_content').load('https://quarkz.co/key-additional-explorer-day-projects');
 
-    $("#target_out").attr("src",lnk);
+    // console.log(manula_pre+def_lnk);
+    $("#target_out").attr("src","");
+
+    // console.log("https://www.kandelaschools.com/user_sessions/"+user.id+".txt");
+
+    $.get("https://www.kandelaschools.com/user_sessions/"+user.id+".txt", function (response){
+        // setCookie("Manula_App",response,1);
+        // https://www.kandelaschools.com/kido-education-ltd-operations-manual-safeguarding
+        // var session_id = manula_pre+def_lnk;
+        console.log(lnk+"?sid="+response);
+        // console.log(lnk+"?sid="+response);
+        $("#target_out").attr("src",lnk+"?sid="+response);
+    });
+
 
     // var ifrm = $("#target_out").contents();
 
@@ -1896,7 +1920,6 @@ $(document).on('click','.lnk_view',function(){
 
         // $('#target_out').html(data);
 
-    // });
 
 });
 

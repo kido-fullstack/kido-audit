@@ -24,13 +24,13 @@ small{color: #bbb;}
         <div id="manuals" class="col-lg-3">
         </div>
         <div id="link_content" class="col-lg-9">
-            <!-- <iframe id="target_out" src="" frameborder="0">
-
-            </iframe> -->
-
-            <iframe id="target_out" src="" height="900" width="1300" >
+            <iframe id="target_out" src="" frameborder="0">
 
             </iframe>
+
+            <!-- <iframe id="target_out" src="https://www.kandelaschools.com/kido-education-ltd-operations-manual-safeguarding" height="900" width="1300" >
+
+            </iframe> -->
         
 
         </div>
@@ -45,16 +45,20 @@ small{color: #bbb;}
     // console.log(logged_user);
     // console.log(JSON.parse(user.manula_links));
     var out_obj = JSON.parse(user.manula_links);
+    var ser = 'https://www.kandelaschools.com/kido-education-ltd-operations-manual-safeguarding';
 
     if(out_obj){
         var mnul_vals =  structured_accordian(out_obj,"manuals",false);
         // var manula_pre = logged_user.country == "1" ? "https://www.kandelaschools.com/" : "https://www.kandelaschools.com/manuals/kido-education/";
         var manula_pre = "https://www.kandelaschools.com/";
+        var def_lnk = "";
+        // var manula_pre = "http://localhost/manula/";
         var kv_check = logged_user.country == "1" ? "?domain=kidovillage" : "";
         $.each(mnul_vals, function (k, v) {
             var elem = $("[ind='" + k + "']");
             var lnk_val = manula_pre+v.value+kv_check;
             console.log(lnk_val);
+            def_lnk == "" ? def_lnk = v.value : false;
             elem.attr("lnk",lnk_val);
             elem.addClass("lnk_view");
             // var lnk_val = "https://kandelaschools.com/"+v.value;
@@ -70,6 +74,22 @@ small{color: #bbb;}
             // elem.prepend(tml).contents();
             // console.log(elem[0]);
         });
+        var man_user_id = user.id;
+        $("#target_out").attr("src",manula_pre+def_lnk+"?user_id="+user.id);
+
+        // $.get(manula_pre+def_lnk, function (response){
+        //     // var html = response;
+        //     // var html_src = 'data:text/html;charset=utf-8,' + html;
+        //     // var tmp = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Operations &#8211; Safeguarding - Kïdo Education LTD - Operations Manual - Safeguarding - 1</title></head> <body><h1>test</h1></body></html>';
+        //     var doc = document.getElementById('target_out').contentWindow.document;
+        //     doc.open();
+        //     doc.write(response);
+        //     doc.close();
+        //     // $("#target_out").attr("src" , tmp);
+        // });
+
+
+
         $(".ls1").addClass("uls1").removeClass("ls1");
         $(".ls2").addClass("uls2").removeClass("ls2");
         $(".ls3").addClass("uls3").removeClass("ls3");
