@@ -1887,45 +1887,14 @@ $(document).on('click','.lnk_view',function(){
     var lnk = $(this).attr("lnk");
     var user = local_get("logged_user");
 
-    // var temp = $("#target_out").contents().find(".navbar navbar-fixed-top").html();
-    // $('#target_out').contents().find('html').html("<h1 style='text-align: center;'>This IS an iframe</h1>");
-    // $("#target_out").empty();
-
-    // console.log($('#target_out').contents().find('html').length);lnk_view check_link
-
-    // $('#link_content').load('https://quarkz.co/key-additional-explorer-day-projects');
-
-    // console.log(manula_pre+def_lnk);
     $("#target_out").attr("src","");
 
-    // console.log("https://www.kandelaschools.com/user_sessions/"+user.id+".txt");
-
-    $.get("https://www.kandelaschools.com/cookie.php", function (resp){
-
-        console.log(resp);
-    });
-
     $.get("https://www.kandelaschools.com/user_sessions/"+user.id+".txt", function (response){
-        // setCookie("Manula_App",response,1);
-        // https://www.kandelaschools.com/kido-education-ltd-operations-manual-safeguarding
-        // var session_id = manula_pre+def_lnk;
         console.log(lnk+"?sid="+response);
-        // console.log(lnk+"?sid="+response);
         $("#target_out").attr("src",lnk+"?sid="+response);
     });
 
-
-    // var ifrm = $("#target_out").contents();
-
-    // console.log(ifrm.find("div").length);
-
-    // $.get(lnk).success(function(data){
-
-        // console.log(data);
-
-        // $('#target_out').html(data);
-
-
+    
 });
 
 function cust_navigate(view_name) {
