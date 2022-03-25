@@ -1900,6 +1900,7 @@ $(document).on('click','.lnk_view',function(){
             $("#target_out").attr("src",lnn_fin);
         }else{
             console.log("Manula Not LoggedIn.");
+            $("#target_out").attr("src","https://www.kandelaschools.com/user?action=logout");
         }
     });
 
