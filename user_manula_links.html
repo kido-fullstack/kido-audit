@@ -24,7 +24,7 @@ small{color: #bbb;}
         <div id="manuals" class="col-lg-3">
         </div>
         <div id="link_content" class="col-lg-9">
-            <iframe id="target_out" src="" frameborder="0">
+            <iframe id="target_out" src="https://www.kandelaschools.com/kido-village-playgroup-month-2?domain=kidovillage" frameborder="0">
 
             </iframe>
 
@@ -53,11 +53,11 @@ small{color: #bbb;}
         var manula_pre = "https://www.kandelaschools.com/";
         var def_lnk = "";
         // var manula_pre = "http://localhost/manula/";
-        var kv_check = logged_user.country == "1" ? "?domain=kidovillage" : "";
+        var kv_check = logged_user.country == 1 ? "?domain=kidovillage" : "";
         $.each(mnul_vals, function (k, v) {
             var elem = $("[ind='" + k + "']");
             var lnk_val = manula_pre+v.value+kv_check;
-            console.log(lnk_val);
+            // console.log(lnk_val);
             def_lnk == "" ? def_lnk = v.value : false;
             elem.attr("lnk",lnk_val);
             elem.addClass("lnk_view");
@@ -75,7 +75,12 @@ small{color: #bbb;}
             // console.log(elem[0]);
         });
         var man_user_id = user.id;
-        $("#target_out").attr("src",manula_pre+def_lnk+"?user_id="+user.id);
+
+        var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&user_id="+user.id : manula_pre+def_lnk+"?user_id="+user.id;
+
+        console.log(frst_lnk);
+
+        $("#target_out").attr("src",frst_lnk);
 
         // $.get(manula_pre+def_lnk, function (response){
         //     // var html = response;

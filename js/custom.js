@@ -1887,15 +1887,35 @@ $(document).on('click','.lnk_view',function(){
     var lnk = $(this).attr("lnk");
     var user = local_get("logged_user");
 
-    $("#target_out").attr("src","");
-
-    $.get("https://www.kandelaschools.com/user_sessions/"+user.id+".txt", function (response){
-        console.log(lnk+"?sid="+response);
-        $("#target_out").attr("src",lnk+"?sid="+response);
+    // $("#target_out").attr("src","");
+    $.get("https://www.kandelaschools.com/user_sessions/"+user.id+".txt", function (response,textStatus, xhr){
+        // console.log(lnk+"?sid="+response);
+        // console.log(textStatus);
+        // console.log(xhr);
+        // console.log(lnk+"?sid="+response);
+        var lnn_fin = logged_user.country == "1" ? lnk+"&sid="+response : lnk+"?sid="+response;
+        console.log(lnn_fin);
+        if(response.length < 99){
+            $("#target_out").attr("src",lnn_fin);
+        }else{
+            console.log("Manula Not LoggedIn.");
+        }
     });
 
     
 });
+
+function urlExists(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        callback(xhr.status < 400);
+      }
+    };
+    xhr.open('HEAD', url);
+    xhr.send();
+}
+
 
 function cust_navigate(view_name) {
     clearInterval();
