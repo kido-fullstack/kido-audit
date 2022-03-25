@@ -78,7 +78,7 @@ small{color: #bbb;}
 
         // var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&user_id="+user.id : manula_pre+def_lnk+"?user_id="+user.id;
         // var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&sid=null" : manula_pre+def_lnk+"?sid=null";
-        var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+"/1/en/user?action=logout"+kv_check : manula_pre+def_lnk+"/1/en/user?action=logout";
+        var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+"/1/en/user?action=logout&user_id="+user.id+kv_check : manula_pre+def_lnk+"/1/en/user?action=logout&user_id="+user.id;
         // console.log(frst_lnk);
 
         $("#target_out").attr("src",frst_lnk);
