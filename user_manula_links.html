@@ -76,7 +76,8 @@ small{color: #bbb;}
         });
         var man_user_id = user.id;
 
-        var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&user_id="+user.id : manula_pre+def_lnk+"?user_id="+user.id;
+        // var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&user_id="+user.id : manula_pre+def_lnk+"?user_id="+user.id;
+        var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&sid=null" : manula_pre+def_lnk+"?sid=null";
 
         console.log(frst_lnk);
 
