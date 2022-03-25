@@ -53,7 +53,7 @@ small{color: #bbb;}
         var manula_pre = "https://www.kandelaschools.com/";
         var def_lnk = "";
         // var manula_pre = "http://localhost/manula/";
-        var kv_check = logged_user.country == 1 ? "?domain=kidovillage" : "";
+        var kv_check = logged_user.country == 1 ? "&domain=kidovillage" : "";
         $.each(mnul_vals, function (k, v) {
             var elem = $("[ind='" + k + "']");
             var lnk_val = manula_pre+v.value+kv_check;
