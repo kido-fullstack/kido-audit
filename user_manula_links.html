@@ -48,13 +48,12 @@ small{color: #bbb;}
     var ser = 'https://www.kandelaschools.com/kido-education-ltd-operations-manual-safeguarding';
 
     if(out_obj){
-        // var man_user_id = user.id;
         var mnul_vals =  structured_accordian(out_obj,"manuals",false);
         // var manula_pre = logged_user.country == "1" ? "https://www.kandelaschools.com/" : "https://www.kandelaschools.com/manuals/kido-education/";
         var manula_pre = "https://www.kandelaschools.com/";
         var def_lnk = "";
         // var manula_pre = "http://localhost/manula/";
-        var kv_check = logged_user.country == 1 ? "?domain=kidovillage&user_id="+user.id : "?user_id="+user.id;
+        var kv_check = logged_user.country == 1 ? "?domain=kidovillage" : "";
         $.each(mnul_vals, function (k, v) {
             var elem = $("[ind='" + k + "']");
             var lnk_val = manula_pre+v.value+kv_check;
@@ -75,11 +74,12 @@ small{color: #bbb;}
             // elem.prepend(tml).contents();
             // console.log(elem[0]);
         });
+        var man_user_id = user.id;
 
-        var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&user_id="+user.id+"&sid=null" : manula_pre+def_lnk+"?user_id="+user.id+"&sid=null";
+        // var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&user_id="+user.id : manula_pre+def_lnk+"?user_id="+user.id;
         // var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+kv_check+"&sid=null" : manula_pre+def_lnk+"?sid=null";
-
-        console.log(frst_lnk);
+        var frst_lnk = logged_user.country == 1 ? manula_pre+def_lnk+"/1/en/user?action=logout"+kv_check : manula_pre+def_lnk+"/1/en/user?action=logout";
+        // console.log(frst_lnk);
 
         $("#target_out").attr("src",frst_lnk);
 
