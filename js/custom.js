@@ -1895,6 +1895,7 @@ $(document).on('click','.lnk_view',function(){
         // console.log(lnk+"?sid="+response);
         var lnn_fin = logged_user.country == "1" ? lnk+"&sid="+response : lnk+"?sid="+response;
         console.log(lnn_fin);
+        console.log(response.length);
         if(response.length < 99){
             $("#target_out").attr("src",lnn_fin);
         }else{
