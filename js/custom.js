@@ -398,7 +398,7 @@ function updt_usr_tbl() {
         // trs += '<tr><td>'+v.name+'</td> <td class="usr_email">'+v.email+'</td><td><input type="checkbox" value="'+v.id+'"></td></tr>';
         trs += '<tr><td>'+v.name+'</td> <td class="usr_email">'+v.email+'</td><td><input type="checkbox" value="'+v.id+'"></td></tr>';
     });
-    $("#user_trs").append(trs);
+    $("#user_trs").empty().append(trs);
     $('#user_list').DataTable();
 }
 
