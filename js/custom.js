@@ -1,6 +1,6 @@
 // let form_id = null;
-var server = ((document.location.host).indexOf("localhost") !== -1) ? "http://localhost/kido-audit-api/api.php" : 'https://shop.kidovillage.com/kido-audit-api/api.php';
-var dwnld_url = ((document.location.host).indexOf("localhost") !== -1) ? "http://localhost/kido-audit-api/" : 'https://shop.kidovillage.com/kido-audit-api/';
+var server = ((document.location.host).indexOf("localhost") !== -1) ? "http://localhost:8383/kido-audit-api/api.php" : 'https://shop.kidovillage.com/kido-audit-api/api.php';
+var dwnld_url = ((document.location.host).indexOf("localhost") !== -1) ? "http://localhost:8383/kido-audit-api/" : 'https://shop.kidovillage.com/kido-audit-api/';
 
 var teamTypes = {
     "kido" : 1,
@@ -554,12 +554,25 @@ function teach_insp_tbl() {
     var i = 1;
     var trs = "";
     $.each(inspects, function (k, v) {
+        // const d = new Date(v.added_on);
+        // let dt_txt = d.toDateString();
+        const d = new Date();
+        var dt_txt = nearestWeekDay(d,5).toDateString();
+        v.schedule == '4' ? dt_txt = new Date(d.getFullYear(), d.getMonth(), 0).toDateString(): false;
+        // console.log(v.schedule);
         if(v.status == 1 || v.status == 2){
-            trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+v.added_on+'</td> <td>'+statuses[v.status]+'</td><td> <a href="#user_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
+            trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+dt_txt+'</td> <td>'+statuses[v.status]+'</td><td> <a href="#user_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
             i++;
         }
     });
     $("#inspect_trs").append(trs);
+}
+
+function nearestWeekDay(d,dow){
+    // var now = new Date();    
+    // now.setDate(now.getDate() + (x+(7-now.getDay())) % 7);
+    d.setDate(d.getDate() + (dow+(7-d.getDay())) % 7);
+    return d;
 }
 
 function structured_accordian(obj,div_id,end_arrow_show) {
