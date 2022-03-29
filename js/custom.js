@@ -532,12 +532,13 @@ function updt_insp_tbl() {
     $.each(inspects, function (k, v) {
         // var stat = new Date(v.due_date) < new Date() ? "Missed" : "Active";
         var sch = scheduleType[v.schedule] || "Not set";
-        var edt_opt = user.level == 6 ? '' : '<a href="#edit_form" onclick="form_id='+v.id+';" >  Edit </a>'; // Edit not allowed for PRM
+        var edt_opt = user.level == 6 ? '' : ' <a href="#edit_form" onclick="form_id='+v.id+';" >  Edit </a>'; // Edit not allowed for PRM
+        var snd_opt = user.level == 6 ? '' : ' <span form_id="'+v.id+'" class="send_inspect">Send</span>'; // Send not allowed for PRM
         trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+sch+'</td>'
         +' <td class="tab_action">'
         + edt_opt
         +' <a href="#view_submittions" onclick="form_id='+v.id+';" >  View Submissions </a>'
-        +' <span form_id="'+v.id+'" class="send_inspect">Send</span></td>'
+        + snd_opt+'</td>'
         +' </tr>';
         // trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+v.due_date+'</td> <td>'+v.assigned_to+'</td> <td>'+stat+'</td><td>'+sch+'</td><td> <a href="#edit_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
         i++;
