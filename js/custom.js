@@ -1347,18 +1347,24 @@ $(document).on('click','#create_new_clusadmin',function(){
             data["password"] = "123";
             cols.push("password");
         }
-
         // var data = JSON.stringify({"id":user.id,"name":name,"email":email,"is_admin":is_admin,"team":team,"status":status});
         // var cols = JSON.stringify(["id","name","email","is_admin","team","status"]);
-        var user_det = JSON.parse(requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols)}));
-        // console.log(user_det);
+        var user_det = requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols),"nursery_ids":[]});
         if(parseInt(user_det)){
-            // alert("Cluster Admin Details Save.");
-            // window.location.reload();
             swal({  title: 'Submitted.',type: "success",text: "Cluster Admin Details Save."}).then(function() {
                 window.location.reload();
             });
-        }
+        }else{swal({  title: 'Submitted.',type: "error",text: user_det}).then(function() {});}
+        // try {
+        //     var user_det = JSON.parse(requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols)}));
+        //     if(parseInt(user_det)){
+        //         swal({  title: 'Submitted.',type: "success",text: "Cluster Admin Details Save."}).then(function() {
+        //             window.location.reload();
+        //         });
+        //     }
+        // } catch (error) {
+        //     swal({  title: 'Submitted.',type: "error",text: error}).then(function() {});
+        // }
     }else{
         swal({  title: 'Error',type:"error",text: err});
     }
@@ -1408,17 +1414,13 @@ $(document).on('click','#create_new_user',function(){
             cols.push("password");
         }
 
-        // var data = JSON.stringify({"id":user.id,"name":name,"email":email,"is_admin":is_admin,"team":team,"status":status});
-        // var cols = JSON.stringify(["id","name","email","is_admin","team","status"]);
-        var user_det = JSON.parse(requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols),'nursery_ids':JSON.stringify(nursery_ids)}));
-        console.log(user_det);
+        // var user_det = requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols)});
+        var user_det = requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols),'nursery_ids':JSON.stringify(nursery_ids)});
         if(parseInt(user_det)){
-            // alert("User Saved.");
-            // window.location.reload();
             swal({  title: 'Submitted.',type: "success",text: "User Saved Successfully."}).then(function() {
                 window.location.reload();
             });
-        }
+        }else{swal({  title: 'Submitted.',type: "error",text: user_det}).then(function() {});}
     }else{
         swal({  title: 'Error',type:"error",text: err});
     }
