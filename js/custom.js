@@ -523,7 +523,7 @@ function updt_clust_list_tbl(tabl_id) {
 
 function updt_insp_tbl() {
     var user = local_get('logged_user');
-    // console.log(teamTypes[user.team]);
+    console.log(user.level);
     var filter = JSON.stringify({"team": user.country});
     var inspects = JSON.parse(requester(server,"POST",{'api':'get_inspect','filter':filter}));
     $("#inspect_trs").empty();
