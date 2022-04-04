@@ -532,8 +532,8 @@ function updt_insp_tbl() {
     $.each(inspects, function (k, v) {
         // var stat = new Date(v.due_date) < new Date() ? "Missed" : "Active";
         var sch = scheduleType[v.schedule] || "Not set";
-        var edt_opt = user.level == 6 || 7 ? '' : ' <a href="#edit_form" onclick="form_id='+v.id+';" >  Edit </a>'; // Edit not allowed for PRM & Insp Monitor
-        var snd_opt = user.level == 6 || 7 ? '' : ' <span form_id="'+v.id+'" class="send_inspect">Send</span>'; // Send not allowed for PRM & Insp Monitor
+        var edt_opt = (user.level == 6 || user.level == 7) ? '' : ' <a href="#edit_form" onclick="form_id='+v.id+';" >  Edit </a>'; // Edit not allowed for PRM & Insp Monitor
+        var snd_opt = (user.level == 6 || user.level == 7) ? '' : ' <span form_id="'+v.id+'" class="send_inspect">Send</span>'; // Send not allowed for PRM & Insp Monitor
         trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+sch+'</td>'
         +' <td class="tab_action">'
         + edt_opt
