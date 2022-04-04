@@ -67,17 +67,23 @@
         var user = local_get("logged_user");
         var clusters = user.clutrs;
 
-        if(user.level == 6){
+        if(user.level == 6){            //-----------------PRM NURSERY LEVEL----------------
             var filter = JSON.stringify({"user_id":user.id});
             var user_dets = JSON.parse(requester(server,"POST",{'api':'get_same_nursery_users','filter':filter}));
-            var trs = "";
-            console.log(user_dets);
-            $.each(user_dets, function (k, v) {
-                trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td></tr>';
-            });
-            $('#user_list').find("tbody").append(trs);
-            $('#user_list').DataTable();
-        }else{
+            // var trs = "";
+            // console.log(user_dets);
+            // $.each(user_dets, function (k, v) {
+            //     trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td></tr>';
+            // });
+            // $('#user_list').find("tbody").append(trs);
+            // $('#user_list').DataTable();
+        }if(user.level == 7){           //-----------------INSPECTION MONITOR COUNTRY LEVEL----------------
+
+            var filter = JSON.stringify({"country":user.country,"level":[4,6]});
+            var user_dets = JSON.parse(requester(server,"POST",{'api':'get_users','filter':filter}));
+
+        }
+        else{
 
             var clus_ids = [];
             $.each(clusters, function (k, v) {
@@ -104,14 +110,17 @@
 
             var filter = JSON.stringify({"id":user_ids});
             var user_dets = JSON.parse(requester(server,"POST",{'api':'get_users','filter':filter}));
-            var trs = "";
-            $.each(user_dets, function (k, v) {
-                trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td></tr>';
-            });
-            $('#user_list').find("tbody").append(trs);
-            $('#user_list').DataTable();
 
         }
+
+        var trs = "";
+        $.each(user_dets, function (k, v) {
+            trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td></tr>';
+        });
+        $('#user_list').find("tbody").append(trs);
+        $('#user_list').DataTable();
+
+
 
 //------------------------------------- EDIT FORM / NEW FORM ----------------------------------
 

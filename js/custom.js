@@ -1,6 +1,6 @@
 // let form_id = null;
-var server = ((document.location.host).indexOf("localhost") !== -1) ? "http://localhost:8383/kido-audit-api/api.php" : 'https://shop.kidovillage.com/kido-audit-api/api.php';
-var dwnld_url = ((document.location.host).indexOf("localhost") !== -1) ? "http://localhost:8383/kido-audit-api/" : 'https://shop.kidovillage.com/kido-audit-api/';
+var server = ((document.location.host).indexOf("localhost") !== -1) ? "http://localhost/kido-audit-api/api.php" : 'https://shop.kidovillage.com/kido-audit-api/api.php';
+var dwnld_url = ((document.location.host).indexOf("localhost") !== -1) ? "http://localhost/kido-audit-api/" : 'https://shop.kidovillage.com/kido-audit-api/';
 
 var teamTypes = {
     "kido" : 1,
@@ -532,8 +532,8 @@ function updt_insp_tbl() {
     $.each(inspects, function (k, v) {
         // var stat = new Date(v.due_date) < new Date() ? "Missed" : "Active";
         var sch = scheduleType[v.schedule] || "Not set";
-        var edt_opt = user.level == 6 ? '' : ' <a href="#edit_form" onclick="form_id='+v.id+';" >  Edit </a>'; // Edit not allowed for PRM
-        var snd_opt = user.level == 6 ? '' : ' <span form_id="'+v.id+'" class="send_inspect">Send</span>'; // Send not allowed for PRM
+        var edt_opt = user.level == 6 || 7 ? '' : ' <a href="#edit_form" onclick="form_id='+v.id+';" >  Edit </a>'; // Edit not allowed for PRM & Insp Monitor
+        var snd_opt = user.level == 6 || 7 ? '' : ' <span form_id="'+v.id+'" class="send_inspect">Send</span>'; // Send not allowed for PRM & Insp Monitor
         trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+sch+'</td>'
         +' <td class="tab_action">'
         + edt_opt

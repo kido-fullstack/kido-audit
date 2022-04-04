@@ -117,7 +117,12 @@
                      usr["nurseries"] = JSON.parse(requester(server,"POST",{'api':'get_user_nursery','filter':JSON.stringify({"user_id":user_det[0]["id"]})}));
                     local_set("logged_user",usr);
                     window.location = "prm_admin.html";
+                }else if(parseInt(user_det[0]["level"]) == 7){
+                    var usr = user_det[0];
+                    local_set("logged_user",usr);
+                    window.location = "inspection_monitor.html";
                 }
+
                 // parseInt(user_det[0]["is_admin"]) ? window.location = "dashboard.html" : window.location = "user_dashboard.html";
             }else{
                 // alert("User not added. Please contact admin.");
