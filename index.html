@@ -96,33 +96,40 @@
             var filter = JSON.stringify({"email":user,"password":pass});
             // console.log(filter);
             var user_det = JSON.parse(requester(server,"POST",{'api':'get_users','filter':filter}));
+            // console.log(user_det);
             if(user_det[0]){
-                local_set("logged_user",user_det[0]);
-                if(parseInt(user_det[0]["level"]) == 2){
-                    window.location = "country_admin.html";
-                }else if(parseInt(user_det[0]["level"]) == 3){
-                    var usr = user_det[0];
-                    usr["clutrs"] = JSON.parse(requester(server,"POST",{'api':'get_cluster','filter':JSON.stringify({"user_id":user_det[0]["id"]})}));
-                    local_set("logged_user",usr);
-                    window.location = "cluster_admin.html";
-                }else if(parseInt(user_det[0]["level"]) == 4){
-                    window.location = "teacher_dashboard.html";
-                }else if(parseInt(user_det[0]["level"]) == 1){
-                    window.location = "kido_admin.html";
-                }else if(parseInt(user_det[0]["level"]) == 5){
-                    window.location = "lesson_plan_manager.html";
-                }else if(parseInt(user_det[0]["level"]) == 6){
-                    var usr = user_det[0];
-                    //  = JSON.parse(requester(server,"POST",{'api':'get_cluster','filter':JSON.stringify({"user_id":user_det[0]["id"]})}));
-                     usr["nurseries"] = JSON.parse(requester(server,"POST",{'api':'get_user_nursery','filter':JSON.stringify({"user_id":user_det[0]["id"]})}));
-                    local_set("logged_user",usr);
-                    window.location = "prm_admin.html";
-                }else if(parseInt(user_det[0]["level"]) == 7){
-                    var usr = user_det[0];
-                    local_set("logged_user",usr);
-                    window.location = "inspection_monitor.html";
-                }
+                if(user_det[0]["status"] == "1"){
+                    local_set("logged_user",user_det[0]);
+                    if(parseInt(user_det[0]["level"]) == 2){
+                        window.location = "country_admin.html";
+                    }else if(parseInt(user_det[0]["level"]) == 3){
+                        var usr = user_det[0];
+                        usr["clutrs"] = JSON.parse(requester(server,"POST",{'api':'get_cluster','filter':JSON.stringify({"user_id":user_det[0]["id"]})}));
+                        local_set("logged_user",usr);
+                        window.location = "cluster_admin.html";
+                    }else if(parseInt(user_det[0]["level"]) == 4){
+                        window.location = "teacher_dashboard.html";
+                    }else if(parseInt(user_det[0]["level"]) == 1){
+                        window.location = "kido_admin.html";
+                    }else if(parseInt(user_det[0]["level"]) == 5){
+                        window.location = "lesson_plan_manager.html";
+                    }else if(parseInt(user_det[0]["level"]) == 6){
+                        var usr = user_det[0];
+                        //  = JSON.parse(requester(server,"POST",{'api':'get_cluster','filter':JSON.stringify({"user_id":user_det[0]["id"]})}));
+                        usr["nurseries"] = JSON.parse(requester(server,"POST",{'api':'get_user_nursery','filter':JSON.stringify({"user_id":user_det[0]["id"]})}));
+                        local_set("logged_user",usr);
+                        window.location = "prm_admin.html";
+                    }else if(parseInt(user_det[0]["level"]) == 7){
+                        var usr = user_det[0];
+                        local_set("logged_user",usr);
+                        window.location = "inspection_monitor.html";
+                    }
 
+                }else{
+                    swal({  title: 'Login Failed.',type: "error",text: "Please contact Support at kidovillage.com"}).then(function() {
+                        window.location.reload();
+                    });
+                }
                 // parseInt(user_det[0]["is_admin"]) ? window.location = "dashboard.html" : window.location = "user_dashboard.html";
             }else{
                 // alert("User not added. Please contact admin.");
