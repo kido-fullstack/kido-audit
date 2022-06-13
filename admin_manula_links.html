@@ -85,7 +85,7 @@ $.getJSON( json_obj, function(manuals) {
     });
 });
 
-    var filter = JSON.stringify({"country":user.country,"level":4});
+    var filter = JSON.stringify({"country":user.country,"level":[4,6]});
     var inspects = JSON.parse(requester(server,"POST",{'api':'get_users','filter':filter}));
     $("#user_trs").empty();
     var trs = "";
