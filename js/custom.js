@@ -1304,7 +1304,7 @@ $(document).on('click','#save_profile',function(){
     pass.length > 2 ? true : err += " Please provide password. " ;
 
     if(!err.length){
-        var data = JSON.stringify({"id":user.id,"name":name,"email":email,"password":pass});
+        var data = JSON.stringify({"id":user.id,"password":pass});
         var user_det = JSON.parse(requester(server,"POST",{'api':'update_password','data':data}));
         // console.log(user_det);
         if(parseInt(user_det)){
