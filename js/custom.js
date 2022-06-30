@@ -1306,10 +1306,13 @@ $(document).on('click','#save_profile',function(){
     if(!err.length){
         var data = JSON.stringify({"id":user.id,"password":pass});
         var user_det = JSON.parse(requester(server,"POST",{'api':'update_password','data':data}));
-        // console.log(user_det);
-        if(parseInt(user_det)){
+        console.log(user_det);
+        if(parseInt(user_det.id)){
             // alert("Profile Updated.");
-            swal({  title: 'Submitted.',type: "success",text: "Profile Updated Succesfully."});
+            swal({  title: 'Submitted.',type: "success",text: "Password Updated Succesfully."}).then(function() {
+                window.location.reload();
+            });
+            
         }
     }else{
         swal({  title: 'Error',type:"error",text: err});
