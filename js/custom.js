@@ -19,6 +19,7 @@ var country = {
 
 var countryRegions = {
     1 : ["North","Central","East","South","West"],
+    2 : ["North","Central","East","South","West"],
     4 : ["North","Central","East","South","West"]
 }
 var countryTeamNames = {
