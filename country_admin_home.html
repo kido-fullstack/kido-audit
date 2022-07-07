@@ -616,28 +616,37 @@
 
         });
 
-        console.log(reg_obj);
-        $("#north-total-cluster").text(obj_fin.North.Cluster);
-        $("#north-total-nurseries").text(obj_fin.North.Nurseries);
-        $("#north-total-teachers").text(obj_fin.North.Users);
+        if(obj_fin.North){
+            $("#north-total-cluster").text(obj_fin.North.Cluster);
+            $("#north-total-nurseries").text(obj_fin.North.Nurseries);
+            $("#north-total-teachers").text(obj_fin.North.Users);
+        }
 
-        $("#east-total-cluster").text(obj_fin.East.Cluster);
-        $("#east-total-nurseries").text(obj_fin.East.Nurseries);
-        $("#east-total-teachers").text(obj_fin.East.Users);
+        if(obj_fin.East){
+            $("#east-total-cluster").text(obj_fin.East.Cluster);
+            $("#east-total-nurseries").text(obj_fin.East.Nurseries);
+            $("#east-total-teachers").text(obj_fin.East.Users);
+        }
 
-        $("#west-total-cluster").text(obj_fin.West.Cluster);
-        $("#west-total-nurseries").text(obj_fin.West.Nurseries);
-        $("#west-total-teachers").text(obj_fin.West.Users);
 
-        $("#south-total-cluster").text(obj_fin.South.Cluster);
-        $("#south-total-nurseries").text(obj_fin.South.Nurseries);
-        $("#south-total-teachers").text(obj_fin.South.Users);
 
-        $("#central-total-cluster").text(obj_fin.Central.Cluster);
-        $("#central-total-nurseries").text(obj_fin.Central.Nurseries);
-        $("#central-total-teachers").text(obj_fin.Central.Users);
-    
+        if(obj_fin.East){
+            $("#west-total-cluster").text(obj_fin.West.Cluster);
+            $("#west-total-nurseries").text(obj_fin.West.Nurseries);
+            $("#west-total-teachers").text(obj_fin.West.Users);
+        }
 
+        if(obj_fin.East){
+            $("#south-total-cluster").text(obj_fin.South.Cluster);
+            $("#south-total-nurseries").text(obj_fin.South.Nurseries);
+            $("#south-total-teachers").text(obj_fin.South.Users);
+        }
+
+        if(obj_fin.Central){
+            $("#central-total-cluster").text(obj_fin.Central.Cluster);
+            $("#central-total-nurseries").text(obj_fin.Central.Nurseries);
+            $("#central-total-teachers").text(obj_fin.Central.Users);
+        }
             $('.region-btn').click(function() {
                 var n = $(this).attr('region');      
                 $("."+n).empty();
@@ -673,39 +682,39 @@
 
 <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
 <script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-<script src="js/pages/graphs/inspection-count-graph.js"></script>
-<script src="js/pages/graphs/score-graph.js"></script>
+<script src="js/pages/graphs/inspection-count-graph.js?v=0.1"></script>
+<script src="js/pages/graphs/score-graph.js?v=0.1"></script>
 
 
 
 <script>
-  $(function() {
+//   $(function() {
 
-var start = moment().subtract(29, 'days');
-var end = moment();
+// var start = moment().subtract(29, 'days');
+// var end = moment();
 
-function cb(start, end) {
-    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-}
+// function cb(start, end) {
+//     $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+// }
 
-$('#reportrange').daterangepicker({
-    startDate: start,
-    endDate: end,
-    ranges: {
-       'Today': [moment(), moment()],
-       'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-       'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-       'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-       'This Month': [moment().startOf('month'), moment().endOf('month')],
-       'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-    }
-}, cb);
+// $('#reportrange').daterangepicker({
+//     startDate: start,
+//     endDate: end,
+//     ranges: {
+//        'Today': [moment(), moment()],
+//        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+//        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+//        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+//        'This Month': [moment().startOf('month'), moment().endOf('month')],
+//        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+//     }
+// }, cb);
 
-// cb(start, end);
-cb();
+// // cb(start, end);
+// cb();
 
 
-});
+// });
 </script> 
 
 
