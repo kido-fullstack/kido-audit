@@ -1740,7 +1740,8 @@ $(document).on('click','#save_user_manula_links',function(){
         var notifi_email = (document.location.host).indexOf("localhost") !== -1 ? 0 : 1 ;
         var user_det = JSON.parse(requester(server,"POST",{'api':'update_user_manula_links','data':JSON.stringify(data),"notify_email":notifi_email}));
         // alert(parseInt(user_det));
-        if(parseInt(user_det)){
+        // console.log(user_det.id);
+        if(parseInt(user_det.id)){
             // alert(" Links assigned. ");
             swal({ title: 'Submitted.',type: "success",text: "Links assigned."});
         }else{
