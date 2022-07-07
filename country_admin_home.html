@@ -616,6 +616,7 @@
 
         });
 
+        console.log();
         if(obj_fin.North){
             $("#north-total-cluster").text(obj_fin.North.Cluster);
             $("#north-total-nurseries").text(obj_fin.North.Nurseries);
@@ -630,13 +631,13 @@
 
 
 
-        if(obj_fin.East){
+        if(obj_fin.West){
             $("#west-total-cluster").text(obj_fin.West.Cluster);
             $("#west-total-nurseries").text(obj_fin.West.Nurseries);
             $("#west-total-teachers").text(obj_fin.West.Users);
         }
 
-        if(obj_fin.East){
+        if(obj_fin.South){
             $("#south-total-cluster").text(obj_fin.South.Cluster);
             $("#south-total-nurseries").text(obj_fin.South.Nurseries);
             $("#south-total-teachers").text(obj_fin.South.Users);
