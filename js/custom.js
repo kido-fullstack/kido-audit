@@ -1738,7 +1738,8 @@ $(document).on('click','#save_user_manula_links',function(){
     if(!errs.length){
         var data = {"manula_links":user_manula_links,"id":user_id,"email":user_email};
         // var filter = {"id":user.id};
-        var notifi_email = (document.location.host).indexOf("localhost") !== -1 ? 0 : 1 ;
+        // var notifi_email = (document.location.host).indexOf("localhost") !== -1 ? 0 : 1 ;
+        var notifi_email = 0 ;
         var user_det = JSON.parse(requester(server,"POST",{'api':'update_user_manula_links','data':JSON.stringify(data),"notify_email":notifi_email}));
         // alert(parseInt(user_det));
         // console.log(user_det.id);
