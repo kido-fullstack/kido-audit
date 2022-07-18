@@ -147,7 +147,13 @@ var access_portals_list = [
         "link": "https://kidoschool.gyde.ai/#/login",
         "logo": "images/kido_logo.png",
         "desc": "Login to complete child assessments and view reports.",
-    }    
+    },
+    {
+        "name": "Kido Learning",
+        "link": "https://mykidolearning.gyde.ai/user/login",
+        "logo": "images/kido_logo.png",
+        "desc": "Kido Learning.",
+    }
 ];
 
 $(function() {
