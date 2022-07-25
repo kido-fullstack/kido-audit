@@ -183,7 +183,7 @@ $( "#due_date" ).datepicker({
         // var form_id = url.searchParams.get("form_id");
         var filter = JSON.stringify({"id":form_id});
         var inspects = JSON.parse(requester(server,"POST",{'api':'get_inspect','filter':filter}));
-        // console.log(inspects);
+        console.log(inspects);
         var formRenderOpts = {
             dataType: 'json',
             formData: inspects[0]['content']
@@ -205,6 +205,7 @@ $( "#due_date" ).datepicker({
         parseInt(inspects[0]['submit_after_due_date']) ? $('#allow_after_dd').prop('checked', true) : false;
 
         $("#assign_users").attr("form_id",form_id);
+        $("#inspect_title").attr("form_id",form_id);        
         $('#user_list').DataTable();
 
     }else{

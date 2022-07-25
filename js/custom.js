@@ -209,7 +209,7 @@ $(function() {
             var team = user.country;
             var data = {'api':'save_inspect','content':fbuilder.formData,"title":title,"due_date":due_date,"submit_after_due_date":allow_after_dd,"schedule":inspect_schedule,"team":team};
             if($("#inspect_title").attr("form_id")){
-                data["id"] = $("#inspect_title").attr("form_id");
+                data["id"] = form_id || $("#inspect_title").attr("form_id");
             }
             requester(server,"POST",data);
             $("#modal_btn").trigger("click");
@@ -226,16 +226,22 @@ $(function() {
         // $( ".mail_chip" ).each(function() {
         //     users.push($(this).text());
         // });
-        // console.log(users);
-        var inspects = requester(server,"POST",{'api':'assign_users','users':users,'form_id':form_id});
-        if(parseInt(inspects)){
-            // alert("Saved");
-            swal({  title: 'Saved',type:"success",text: "Sent"}).then(function() {
+        console.log(users);
+        if(Object.keys(users).length){
+            var inspects = requester(server,"POST",{'api':'assign_users','users':users,'form_id':form_id});
+            if(parseInt(inspects)){
+                // alert("Saved");
+                swal({  title: 'Saved',type:"success",text: "Sent"}).then(function() {
+                    $(".modal-content button.close").trigger("click");
+                });
+                // cust_navigate("basic-table");
+            }else{
+                swal({  title: 'Error',type:"error",text: "Not saved."});
+            }
+        }else{
+            swal({  title: 'Form saved',type:"success",text: "Sent to no user."}).then(function() {
                 $(".modal-content button.close").trigger("click");
             });
-            // cust_navigate("basic-table");
-        }else{
-            swal({  title: 'Error',type:"error",text: "Not saved."});
         }
     });
 
