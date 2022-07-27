@@ -101,7 +101,7 @@ var access_portals_list = [
         "desc": "Manage nursery details and upload images, video & documents. Easy & flexible to use.",
     },
     {
-        "name": "Zoho Mail",
+        "name": "ZohoMail",
         "link": "https://www.zoho.com/mail/login.html",
         "logo": "https://storage.googleapis.com/kido-assets/Zoho_Mail_Icon.png",
         "desc": "Zoho Mail is an excellent email service that is clean, fast, and offers better protection against fake emails.",
