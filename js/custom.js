@@ -89,7 +89,7 @@ var access_portals_list = [
         "desc": "Manula is super-easy to use manual creation software, for writing, formatting and publishing online instruction manuals.",
     },
     {
-        "name": "Famly",
+        "name": "Kido Famly App",
         "link": "https://www.famly.co/",
         "logo": "https://storage.googleapis.com/kido-assets/famly_logo.png",
         "desc": "Software that brings you closer to parents and makes it easier to run your setting smoothly.",
