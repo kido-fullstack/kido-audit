@@ -90,7 +90,7 @@ var access_portals_list = [
     },
     {
         "name": "Kido Famly App",
-        "link": "https://www.famly.co/",
+        "link": "https://app.famly.co/#/login",
         "logo": "https://storage.googleapis.com/kido-assets/famly_logo.png",
         "desc": "Software that brings you closer to parents and makes it easier to run your setting smoothly.",
     },
