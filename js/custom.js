@@ -89,16 +89,22 @@ var access_portals_list = [
         "desc": "Manula is super-easy to use manual creation software, for writing, formatting and publishing online instruction manuals.",
     },
     {
-        "name": "LeadSquared",
-        "link": "https://login.leadsquared.com",
-        "logo": "images/lsq_logo.png",
-        "desc": "CRM software for businesses. Organize your lead capture, lead management, sales management & analytics in one platform.",
+        "name": "Famly",
+        "link": "https://www.famly.co/",
+        "logo": "https://storage.googleapis.com/kido-assets/famly_logo.png",
+        "desc": "Software that brings you closer to parents and makes it easier to run your setting smoothly.",
     },
     {
-        "name": "Cipher",
+        "name": "Ciphr",
         "link": "https://kido.myciphr247.com/",
         "logo": "images/kido_logo.png",
         "desc": "Manage nursery details and upload images, video & documents. Easy & flexible to use.",
+    },
+    {
+        "name": "Zoho Mail",
+        "link": "https://www.zoho.com/mail/login.html",
+        "logo": "https://storage.googleapis.com/kido-assets/Zoho_Mail_Icon.png",
+        "desc": "Zoho Mail is an excellent email service that is clean, fast, and offers better protection against fake emails.",
     },
     {
         "name": "Facebook",
