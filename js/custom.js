@@ -379,6 +379,25 @@ function valid_email(tstr) {
     return (err ? false : true )
 }
 
+
+$(document).on('paste','.fld-label',function(e){
+// $('').on('paste', function(e) {
+    // console.log("test");
+    e.preventDefault();
+    var text = '';
+    if (e.clipboardData || e.originalEvent.clipboardData) {
+      text = (e.originalEvent || e).clipboardData.getData('text/plain');
+    } else if (window.clipboardData) {
+      text = window.clipboardData.getData('Text');
+    }
+    // console.log(text);
+    if (document.queryCommandSupported('insertText')) {
+      document.execCommand('insertText', false, text);
+    } else {
+      document.execCommand('paste', false, text);
+    }
+});
+
 function updt_usr_tbl() {
     // var user = local_get('logged_user');
     // var filter = JSON.stringify({"team":user.team});
