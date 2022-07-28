@@ -392,9 +392,9 @@ $(document).on('paste','.fld-label',function(e){
     }
     // console.log(text);
     if (document.queryCommandSupported('insertText')) {
-      document.execCommand('insertText', false, text);
+      document.execCommand('insertText', false, text.trim());
     } else {
-      document.execCommand('paste', false, text);
+      document.execCommand('paste', false, text.trim());
     }
 });
 
