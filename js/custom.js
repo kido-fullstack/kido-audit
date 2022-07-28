@@ -391,11 +391,11 @@ $(document).on('paste','.fld-label',function(e){
       text = window.clipboardData.getData('Text');
     }
     // console.log(text);
-    text = text.replaceAll('"', "″");
+    text = $.trim((text.replaceAll('"', "″")).trim());
     if (document.queryCommandSupported('insertText')) {
-      document.execCommand('insertText', false, text.trim());
+      document.execCommand('insertText', false, text);
     } else {
-      document.execCommand('paste', false, text.trim());
+      document.execCommand('paste', false, text);
     }
 });
 
