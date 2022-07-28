@@ -380,7 +380,7 @@ function valid_email(tstr) {
 }
 
 
-$(document).on('paste','.fld-label',function(e){
+$(document).on('paste','.fld-label,.fld-value,.option-label',function(e){
 // $('').on('paste', function(e) {
     // console.log("test");
     e.preventDefault();
@@ -391,11 +391,12 @@ $(document).on('paste','.fld-label',function(e){
       text = window.clipboardData.getData('Text');
     }
     // console.log(text);
-    text = $.trim((text.replaceAll('"', "″")).trim());
+    var fin = text.replaceAll('"', "″").replaceAll(' ', " ").trim();
+    
     if (document.queryCommandSupported('insertText')) {
-      document.execCommand('insertText', false, text);
+      document.execCommand('insertText', false, fin);
     } else {
-      document.execCommand('paste', false, text);
+      document.execCommand('paste', false, fin);
     }
 });
 
