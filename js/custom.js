@@ -391,6 +391,7 @@ $(document).on('paste','.fld-label',function(e){
       text = window.clipboardData.getData('Text');
     }
     // console.log(text);
+    text = text.replaceAll('"', "″");
     if (document.queryCommandSupported('insertText')) {
       document.execCommand('insertText', false, text.trim());
     } else {
