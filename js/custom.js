@@ -208,6 +208,12 @@ $(function() {
         if(err.length){
             swal({  title: 'Error',type:"error",text: err});
         }else{
+
+            $(".fld-label,.fld-value,.option-label").each(function() {
+                $(this).val(($(this).val()).replaceAll('"', "″").replaceAll(' ', " ").trim());
+                $(this).text(($(this).text()).replaceAll('"', "″").replaceAll(' ', " ").trim());
+            });
+
             var due_date = $( "#due_date" ).val().substring(0,10);
             var inspect_schedule = $("#inspect_schedule").val();
             var allow_after_dd = $('#allow_after_dd').is(":checked") ? 1 : 0;
