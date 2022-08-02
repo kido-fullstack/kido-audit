@@ -164,31 +164,31 @@ var access_portals_list = [
         "name": "Dext",
         "link": "https://app.dext.com",
         "logo": "https://storage.googleapis.com/kido-assets/dext.jpg",
-        "desc": "Login to complete child assessments and view reports.",
+        "desc": "Dext makes businesses you advise more productive, profitable and powerful.",
     },
     {
         "name": "Spring Verify",
         "link": "https://in.springverify.com",
         "logo": "https://storage.googleapis.com/kido-assets/SpringVerify.png",
-        "desc": "Login to complete child assessments and view reports.",
+        "desc": "SpringVerify India provides background checks for a safe and secure workplace.",
     },
     {
         "name": "Xero",
         "link": "https://login.xero.com",
         "logo": "https://storage.googleapis.com/kido-assets/xero.png",
-        "desc": "Login to complete child assessments and view reports.",
+        "desc": "Xero connects you to your bank, accountant, bookkeeper, and other business apps.",
     },
     {
         "name": "Workable",
         "link": "https://id.workable.com",
         "logo": "https://storage.googleapis.com/kido-assets/workable.png",
-        "desc": "Login to complete child assessments and view reports.",
+        "desc": "Workable helps teams find candidates, evaluate applicants and make the right hire.",
     },
     {
         "name": "OpportuneHRMS",
-        "link": "https://kidoschool.gyde.ai/#/login",
+        "link": "https://hrms.opportune.in",
         "logo": "https://storage.googleapis.com/kido-assets/hrms.jpeg",
-        "desc": "https://hrms.opportune.in",
+        "desc": "OpportuneHR is a complete employee life cycle management to compliances",
     }
 ];
 
