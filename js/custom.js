@@ -159,6 +159,36 @@ var access_portals_list = [
         "link": "https://mykidolearning.gyde.ai/user/login",
         "logo": "images/kido_logo.png",
         "desc": "Kido Learning.",
+    },
+    {
+        "name": "Dext",
+        "link": "https://app.dext.com",
+        "logo": "https://storage.googleapis.com/kido-assets/dext.jpg",
+        "desc": "Login to complete child assessments and view reports.",
+    },
+    {
+        "name": "Spring Verify",
+        "link": "https://in.springverify.com",
+        "logo": "https://storage.googleapis.com/kido-assets/SpringVerify.png",
+        "desc": "Login to complete child assessments and view reports.",
+    },
+    {
+        "name": "Xero",
+        "link": "https://login.xero.com",
+        "logo": "https://storage.googleapis.com/kido-assets/xero.png",
+        "desc": "Login to complete child assessments and view reports.",
+    },
+    {
+        "name": "Workable",
+        "link": "https://id.workable.com",
+        "logo": "https://storage.googleapis.com/kido-assets/workable.png",
+        "desc": "Login to complete child assessments and view reports.",
+    },
+    {
+        "name": "OpportuneHRMS",
+        "link": "https://kidoschool.gyde.ai/#/login",
+        "logo": "images/kido_logo.png",
+        "desc": "https://hrms.opportune.in",
     }
 ];
 
