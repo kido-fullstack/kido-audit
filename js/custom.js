@@ -187,7 +187,7 @@ var access_portals_list = [
     {
         "name": "OpportuneHRMS",
         "link": "https://kidoschool.gyde.ai/#/login",
-        "logo": "images/kido_logo.png",
+        "logo": "https://storage.googleapis.com/kido-assets/hrms.jpeg",
         "desc": "https://hrms.opportune.in",
     }
 ];
