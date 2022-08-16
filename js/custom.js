@@ -235,6 +235,8 @@ $(function() {
         var err = "";
         (title.length == 0) ? err += " Title cannot be empty. " : false;
         JSON.parse(fbuilder.formData).length == 0 ? err += " No fields added. " : false;
+        !JSON.parse(fbuilder.formData) ? err += " Form has errors. " : false;
+        var content_json = refineStr(fbuilder.formData);
         if(err.length){
             swal({  title: 'Error',type:"error",text: err});
         }else{
@@ -249,7 +251,7 @@ $(function() {
             var allow_after_dd = $('#allow_after_dd').is(":checked") ? 1 : 0;
             // var team = teamTypes[$("#user_team").text()];
             var team = user.country;
-            var data = {'api':'save_inspect','content':fbuilder.formData,"title":title,"due_date":due_date,"submit_after_due_date":allow_after_dd,"schedule":inspect_schedule,"team":team};
+            var data = {'api':'save_inspect','content':content_json,"title":title,"due_date":due_date,"submit_after_due_date":allow_after_dd,"schedule":inspect_schedule,"team":team};
             if($("#inspect_title").attr("form_id")){
                 data["id"] = form_id || $("#inspect_title").attr("form_id");
             }
@@ -302,10 +304,14 @@ $(function() {
         var err = "";
         (title.length == 0) ? err += " Title cannot be empty. " : false;
         JSON.parse(fbuilder.formData).length == 0 ? err += " No fields added. " : false;
+        !JSON.parse(fbuilder.formData) ? err += " Form has errors. " : false;    
+
+        var content_json = refineStr(fbuilder.formData);
+
         if(err.length){
             swal({  title: 'Error',type:"error",text: err});
         }else{
-            var data = {'api':'save_inspect','content':fbuilder.formData,"title":title,"due_date":due_date,"submit_after_due_date":allow_after_dd,"schedule":schedule,"team":team};
+            var data = {'api':'save_inspect','content':content_json,"title":title,"due_date":due_date,"submit_after_due_date":allow_after_dd,"schedule":schedule,"team":team};
             if($("#assign_users").attr("form_id")){
                 data["id"] = $("#assign_users").attr("form_id");
             }
@@ -415,6 +421,11 @@ function valid_email(tstr) {
     return (err ? false : true )
 }
 
+function refineStr(str) {
+    var out = str.replaceAll(String.fromCharCode(92)+"r","<br>");
+    out = out.replaceAll(String.fromCharCode(92)+"n","<br>");
+    return out;
+}
 
 $(document).on('paste','.fld-label,.fld-value,.option-label',function(e){
 // $('').on('paste', function(e) {
@@ -794,6 +805,29 @@ $(document).on('click','#user_inspect_submit',function(){
     // console.log(formRenderInstance.userData);
 });
 
+
+$(document).on('click','#user_not_eligible',function(){
+
+    var timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    var cols = JSON.stringify(["inspection_id","user_id","status","submission","submitted_on","updated_on"]);
+    var submission = JSON.stringify([{"type": "header","subtype": "h1","label": "Not Eligible on this date.","access": false}]);
+    var data = [];
+    data.push([form_id,user.id,"1",submission,timestamp,timestamp]);
+    // console.log(submission);
+    var inspects = requester(server,"POST",{'api':'save_tab',"tbl_name":"inspection_assign",'cols':cols,'data':JSON.stringify(data)});
+
+    if (parseInt(inspects)) {
+        swal({  title: 'Submitted.',type: "success",text: "Thank you for submitting your responses."}).then(function() {
+            cust_navigate("user_inspection");
+        });
+    }else{
+        swal({  title: 'Not Submitted.',type: "Error",text: ""});
+    }
+
+});
+
+
+
 $(document).on('click','#user_view_prev_submitted',function(){
 
     var sub_prev = user_submits_display(form_id,user.id);
@@ -865,9 +899,10 @@ function user_submits_display(form_id,user_id) {
         $('#form_div').before("<span id='selected_date'>&emsp;&emsp;Submitted on : "+last_sub_dt+"</span>");
         $('#form_div').before("<span id='form_score'>&emsp;Total Score : "+(submit_score || "Not Defined.")+"</span>");
         // console.log(date_selector);
-        $('#form_div').find("input,select").prop("disabled",true);
+        $('#form_div').find("input,select,textarea").prop("disabled",true);
         $("#user_inspect_submit").remove();
         $("#user_view_prev_submitted").remove();
+        $("#user_not_eligible").remove();
         return true;
     }else{
         return false;
@@ -962,9 +997,10 @@ $(document).on('change','#user_sub_dates',function(){
         $('#form_div').before("<span id='selected_date'>&emsp;&emsp;Submitted on : "+sel_dt+"</span>");
         $('#form_div').before("<span id='form_score'>&emsp;Total Score : "+(submit_score || "Not Defined.")+"</span>");
         // console.log(date_selector);
-        $('#form_div').find("input,select").prop("disabled",true);
+        $('#form_div').find("input,select,textarea").prop("disabled",true);
         $("#user_inspect_submit").remove();
         $("#user_view_prev_submitted").remove();
+        $("#user_not_eligible").remove();
     }
 
 });
