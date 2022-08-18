@@ -7,7 +7,8 @@
         "Marketing":"kido-education-ltd-operations-marketing",
         "Safeguarding":"kido-education-ltd-operations-manual-safeguarding",
         "School Administration":"kido-education-ltd-operations-manual-school-administration",
-        "Forms":"operations-forms"
+        "Forms":"operations-forms",
+        "Kido Education LTD - Operations Manual - SEN Support":"kido-education-ltd-operations-manual-sen-support"
     },
     "Kido Franchisee Information":{
         "Franchisee Information":"kido-education-ltd-franchisee-information",
@@ -92,7 +93,8 @@
             "Experimenters":"k1",
             "Pathfinders":"k2",
             "Seekers":"k3"
-        }
+        },
+        "KEY - Hindi Worksheets India":"key-hindi-worksheets-india1"
     },
     "Kido Schools Alphabet Sound Learning":
     {
