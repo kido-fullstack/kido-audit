@@ -189,6 +189,30 @@ var access_portals_list = [
         "link": "https://hrms.opportune.in",
         "logo": "https://storage.googleapis.com/kido-assets/hrms.jpeg",
         "desc": "OpportuneHR is a complete employee life cycle management to compliances",
+    },
+    {
+        "name": "Gusto",
+        "link": "https://app.gusto.com/login",
+        "logo": "https://storage.googleapis.com/kido-assets/Screenshot%20from%202022-08-24%2020-08-24.png",
+        "desc": "Cloud-based payroll, benefits, and HR management software for businesses",
+    },
+    {
+        "name": "CCEI - Trainings",
+        "link": "https://www.cceifame.com/login.cfm",
+        "logo": "https://storage.googleapis.com/kido-assets/Screenshot%20from%202022-08-24%2020-11-42.png",
+        "desc": "CCEI offers online child care training & certificate programs for continuing education.",
+    },
+    {
+        "name": "Clockshark",
+        "link": "https://www.cceifame.com/login.cfm",
+        "logo": "https://storage.googleapis.com/kido-assets/Screenshot%20from%202022-08-24%2020-21-50.png",
+        "desc": "View the locations of each member on your team in real-time, during work hours.",
+    },
+    {
+        "name": "Slack",
+        "link": "https://slack.com/intl/en-in/get-started#/createnew",
+        "logo": "https://storage.googleapis.com/kido-assets/Screenshot%20from%202022-08-24%2020-16-25.png",
+        "desc": "Slack is a messaging program designed specifically for the office, but has also been adopted for personal use.",
     }
 ];
 
