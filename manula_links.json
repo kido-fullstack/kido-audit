@@ -37,29 +37,83 @@
             "Adventurers": "kido-adventurers-cycle-3",
             "Experimenters": "kido-skills-day-cycle-3",
             "Pathfinders": "kido-pathfinders-cycle-3",
-            "Seekers": "kido-seekers-cycle-3"
+            "Seekers": "kido-seekers-cycle-3",
+            "Pioneers": "key-pioneers-cycle-3"
         },
         "Cycle 4": {
             "Discoverers": "kido-discoverers-cycle-4",
             "Adventurers": "kido-adventurers-cycle-4",
             "Experimenters": "kido-experimenters-cycle-4",
             "Pathfinders": "kido-pathfinders-cycle-4",
-            "Seekers": "kido-seekers-cycle-4"
+            "Seekers": "kido-seekers-cycle-4",
+            "Pioneers": "kido-pioneers-cycle-4"
         },
         "Cycle 5": {
             "Discoverers": "kido-discoverers-cycle-5",
             "Adventurers": "kido-adventurers-cycle-5",
             "Experimenters": "kido-experimenters-cycle-5",
             "Pathfinders": "kido-pathfinders-cycle-5",
-            "Seekers": "kido-seekers-cycle-5"
+            "Seekers": "kido-seekers-cycle-5",
+            "Pioneers": "kido-pioneers-cycle-5"
         },
         "Cycle 6": {
             "Discoverers": "kido-discoverers-cycle-6",
             "Adventurers": "kido-adventurers-cycle-6",
             "Experimenters": "kido-experimenters-cycle-6",
             "Pathfinders": "kido-pathfinders-cycle-6",
-            "Seekers": "kido-seekers-cycle-6"
+            "Seekers": "kido-seekers-cycle-6",
+            "Pioneers": "kido-pioneers-cycle-6"
         },
+        "Spanish Cycle 1": {
+            "Aventureros - Adventurers": "aventureros-adventurers-cycle-1",
+            "Descubridores - Discoverers": "descubridores-discoverers-cycle-1",
+            "Experimenters - Exploradores": "experimenters-exploradores-cycle-1",
+            "Pathfinders - Buscadores de caminos": "pathfinders-buscadores-de-caminos-cycle-1",
+            "Pioneers - Spanish": "pioneers-cycle-1",
+            "Seekers - Spanish": "seekers-spanish-cycle-1",
+            "Spanish Culture": "spanish-culture-cycle-1"
+        },
+        "Spanish Cycle 2": {
+            "Aventureros - Adventurers - Cycle 2": "aventureros-adventurers2",
+            "Descubridores - Discoverers - Cycle 2": "descubridores-discoverers-cycle-2",
+            "Exploradores - Experimenters - Cycle 2": "experimenters-exploradores-spanish-cycle-2",
+            "Pathfinders - Buscadores de caminos - Cycle 2": "buscadores-de-caminos-pathfinders-cycle-2",
+            "Pioneers - Spanish - Cycle 2": "pioneers-spanish-cycle-2",
+            "Seekers - Spanish - Cycle 2": "seekers-spanish-cycle-2",
+            "Spanish Culture - Cycle 2": "spanish-culture-cycle-2"
+        },
+        "Spanish Cycle 3": {
+            "Aventureros - Adventurers - Cycle 3": "aventureros-adventurers-cycle-3",
+            "Descubridores - Discoverers - Cycle 3": "descubridores-discoverers-cycle-3",
+            "Experimenters - Exploradores - Cycle 3": "experimenters-exploradores-cycle-3-3",
+            "Pathfinders - Buscadores de caminos - Cycle 3": "pathfinders-buscadores-de-caminos-cycle-3",
+            "Pioneers - Pioneros - Cycle 3": "pioneers-cycle-3",
+            "Seekers - Investigadors - Cycle 3": "seekers-cycle-3"
+        },
+        "Spanish Cycle 4": {
+            "Aventureros - Adventurers - Cycle 4": "aventureros-adventurers-cycle-4",
+            "Descubridores - Discoverers - Cycle 4": "descubridores-discoverers-cycle-4",
+            "Experimenters - Exploradores - Cycle 4": "experimenters-exploradores-cycle-4",
+            "Pathfinders - Buscadores de caminos - Cycle 4": "pathfinders-buscadores-de-caminos-cycle-4",
+            "Pioneers - Pioneros - Cycle 4": "pioneers-pioneros-cycle-4",
+            "Seekers - Investigadors - Cycle 4": "seekers-investigadors-cycle-4"
+        },
+        "Spanish Cycle 5": {
+            "Aventureros - Adventurers - Cycle 5": "aventureros-adventurers-cycle-5",
+            "Descubridores - Discoverers - Cycle 5": "descubridores-discoverers-cycle-5",
+            "Experimenters - Exploradores - Cycle 5": "experimenters-exploradores-cycle-5",
+            "Pathfinders - Buscadores de caminos - Cycle 5": "pathfinders-buscadores-de-caminos-cycle-5",
+            "Pioneers - Pioneros - Cycle 5": "pioneers-pioneros-cycle-5",
+            "Seekers - Investigadors - Cycle 5": "seekers-investigadors-cycle-5"
+        },
+        "Spanish Cycle 6": {
+            "Adventurers - Aventureros - Cycle 6": "aventureros-adventurers-cycle-6",
+            "Discoverers - Descubridores - Cycle 6": "descubridores-discoverers-cycle-6",
+            "Experimenters - Exploradores - Cycle 6": "exploradores-experimenters-cycle-6",
+            "Pathfinders - Buscadores de caminos - Cycle 6": "buscadores-de-caminos-pathfinders-cycle-6",
+            "Pioneers - Pioneros - Cycle 6": "pioneers-pioneros-cycle-6",
+            "Seekers - Investigadors - Cycle 6": "seekers-investigadors-cycle-6"
+        },        
         "K-STEM": {
             "Beebot": "bee-bot",
             "Cubetto": "bee-bots"
