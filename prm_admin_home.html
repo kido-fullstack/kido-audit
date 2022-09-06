@@ -9,7 +9,7 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-4 col-md-12" id="myInspectionLink">
                 <div class="white-box analytics-info">
                     <span class="navigate" link="user_inspection" >
                         <h3>My Inspections</h3>
@@ -54,6 +54,7 @@
     $('#access_list').empty();
 
     var user =  local_get("logged_user");
+    user.country == "4" ? $("#myInspectionLink").css("display","none") : "";
 
     // console.log(user);
     var filter = JSON.stringify({"user_id":user.id});
