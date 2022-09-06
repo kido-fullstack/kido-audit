@@ -9,7 +9,7 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-lg-5 col-md-12">
+            <div class="col-lg-5 col-md-12" id="myInspectionLink">
                 <div class="white-box analytics-info">
                     <span class="navigate" link="user_inspection" >
                         <h3>My Inspections(India only)</h3>
@@ -55,7 +55,8 @@
 
     var user =  local_get("logged_user");
 
-    // console.log(user);
+    user.country == "4" ? $("#myInspectionLink").css("display","none") : "";
+
     var filter = JSON.stringify({"user_id":user.id});
     var access_cards = JSON.parse(requester(server,"POST",{'api':'get_users_access','filter':filter}));
 
@@ -66,8 +67,6 @@
     });
 
     var ignored_access = ["Manula"];
-
-    console.log(access_portals_list_by_name);
 
     $.each(access_cards, function (k, i) {
         // var v = i[Object.keys(i)[0]];var img_bw = "";
