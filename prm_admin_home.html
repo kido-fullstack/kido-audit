@@ -67,16 +67,19 @@
 
     var ignored_access = ["Manula"];
 
+    console.log(access_portals_list_by_name);
     $.each(access_cards, function (k, i) {
         // var v = i[Object.keys(i)[0]];var img_bw = "";
         if(ignored_access.indexOf(i.access_name) == -1){
             // console.log(i);
-            var access  = access_card.clone();
-            access.find('.access_logo').attr("src",access_portals_list_by_name[i.access_name]["logo"]);
-            access.find('.access_name').text(i.access_name);
-            access.find('.access_link').attr("href",i.link);
-            access.find('.access_desc').text(access_portals_list_by_name[i.access_name]["desc"]);
-            $('#access_list').append(access);
+            if(access_portals_list_by_name[i.access_name]){
+                var access  = access_card.clone();
+                access.find('.access_logo').attr("src",access_portals_list_by_name[i.access_name]["logo"]);
+                access.find('.access_name').text(i.access_name);
+                access.find('.access_link').attr("href",i.link);
+                access.find('.access_desc').text(access_portals_list_by_name[i.access_name]["desc"]);
+                $('#access_list').append(access);
+            }
         }
     });
 
