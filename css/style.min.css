@@ -12581,7 +12581,7 @@ html[dir=ltr] body .p-l-0 {
 #main-wrapper[data-layout=horizontal] .topbar[data-navbarbg=skin5],
 #main-wrapper[data-layout=vertical] .topbar .navbar-collapse[data-navbarbg=skin5],
 #main-wrapper[data-layout=vertical] {
-    background: #405a67;
+    background: #00356b;
 }
 .topbar[data-navbarbg=skin5]{
     background-color: white;
@@ -14865,7 +14865,7 @@ input.form-control[type=file]{
 }
 
 .access_logo{
-    width : 10%
+    width : 10%;
 }
 
 .hiddenRow {
@@ -14878,6 +14878,14 @@ input.form-control[type=file]{
 
 .bg-light {
     background-color: #2a85b133 !important;
+}
+
+.link_color{
+    color: #002b6b;
+}
+
+.link_color:hover{
+    color: orange;
 }
 
 
