@@ -67,7 +67,7 @@ var access_portals_list = [
         "name": "Gmail",
         "link": "https://gmail.com",
         "logo": "images/gm_logo.png",
-        "desc": "Gmail is a free email service provided by Google. A user typically accesses Gmail in a web browser or the official mobile app.",
+        "desc": "Login to access your Kido email.",
     },
     {
         "name": "HubSpot",
@@ -83,7 +83,7 @@ var access_portals_list = [
     },
     {
         "name": "Manula",
-        "display_name":"Lesson Plans & Manuals",
+        "display_name":"Lesson Plans & Operations Manuals",
         "link": "https://admin.manula.com",
         "logo": "images/manula-icon.png",
         "desc": "Manula is super-easy to use manual creation software, for writing, formatting and publishing online instruction manuals.",

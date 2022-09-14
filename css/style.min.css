@@ -12708,6 +12708,10 @@ a.close-model-btn{
     font-size: 18px
 }
 
+.link_color{
+    color: #002b6b;
+}
+
 .list-inline {
     padding-left: 0;
     margin-left: -5px;
