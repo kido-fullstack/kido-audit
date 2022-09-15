@@ -73,13 +73,13 @@ var access_portals_list = [
         "name": "HubSpot",
         "link": "https://app.hubspot.com/login",
         "logo": "images/hs_logo.svg",
-        "desc": "HubSpot is an American developer and marketer of software products for inbound marketing, sales, and customer service.",
+        "desc": "Login to access your leads and connect with them thru their journey as they enrol at Kido.",
     },
     {
         "name": "GoogleDrive",
         "link": "https://drive.google.com/",
         "logo": "images/gd.png",
-        "desc": "Google Drive is a file storage and synchronization service developed by Google.",
+        "desc": "Login to access your files via Google Drive.",
     },
     {
         "name": "Manula",
@@ -92,25 +92,25 @@ var access_portals_list = [
         "name": "Kido Famly App",
         "link": "https://app.famly.co/#/login",
         "logo": "https://storage.googleapis.com/kido-assets/famly_logo.png",
-        "desc": "Software that brings you closer to parents and makes it easier to run your setting smoothly.",
+        "desc": "Login to manage your nursery/preschool and communicate with parents.",
     },
     {
         "name": "Ciphr",
         "link": "https://kido.myciphr247.com/",
         "logo": "images/kido_logo.png",
-        "desc": "Manage nursery details and upload images, video & documents. Easy & flexible to use.",
+        "desc": "Login to access your HR data and trainings.",
     },
     {
         "name": "ZohoMail",
         "link": "https://www.zoho.com/mail/login.html",
         "logo": "https://storage.googleapis.com/kido-assets/Zoho_Mail_Icon.png",
-        "desc": "Zoho Mail is an excellent email service that is clean, fast, and offers better protection against fake emails.",
+        "desc": "Login to access your Kido email.",
     },
     {
         "name": "Facebook",
         "link": "https://www.facebook.com/",
         "logo": "images/fb.png",
-        "desc": "Login for pod's FB marketing needs.",
+        "desc": "Login to your nursery/preschool’s Instagram account.",
     },
     {
         "name": "Instagram",
@@ -134,7 +134,7 @@ var access_portals_list = [
         "name": "Iauditor",
         "link": "https://app.safetyculture.com/login.html?lang=en-US",
         "logo": "images/iauditor.png",
-        "desc": "iAuditor is an inspection app used to empower your workers in the field.",
+        "desc": "Login to complete your nursery/preschool’s inspections and audits.",
     },
     {
         "name": "Kidovillage App(School Diary)",
@@ -146,7 +146,7 @@ var access_portals_list = [
         "name": "Kido App(School Diary)",
         "link": "https://kido.schooldiary.me/Login",
         "logo": "images/kido_logo.png",
-        "desc": "Login to manage your pod and communicate with parents.",
+        "desc": "Login to manage your nursery/preschool and communicate with parents.",
     },
     {
         "name": "KidoschoolBOT",
@@ -158,13 +158,13 @@ var access_portals_list = [
         "name": "Kido Learning",
         "link": "https://mykidolearning.gyde.ai/user/login",
         "logo": "images/kido_logo.png",
-        "desc": "Kido Learning.",
+        "desc": "Login to access your online training.",
     },
     {
         "name": "Dext",
         "link": "https://app.dext.com",
         "logo": "https://storage.googleapis.com/kido-assets/dext.jpg",
-        "desc": "Dext makes businesses you advise more productive, profitable and powerful.",
+        "desc": "Login to manage your vendor invoices and payments.",
     },
     {
         "name": "Spring Verify",
@@ -176,19 +176,19 @@ var access_portals_list = [
         "name": "Xero",
         "link": "https://login.xero.com",
         "logo": "https://storage.googleapis.com/kido-assets/xero.png",
-        "desc": "Xero connects you to your bank, accountant, bookkeeper, and other business apps.",
+        "desc": "Schools invoices, bills and Accounting system",
     },
     {
         "name": "Workable",
         "link": "https://id.workable.com",
         "logo": "https://storage.googleapis.com/kido-assets/workable.png",
-        "desc": "Workable helps teams find candidates, evaluate applicants and make the right hire.",
+        "desc": "Login to find candidates, evaluate applicants and make the right hire.",
     },
     {
         "name": "OpportuneHRMS",
         "link": "https://hrms.opportune.in",
         "logo": "https://storage.googleapis.com/kido-assets/hrms.jpeg",
-        "desc": "OpportuneHR is a complete employee life cycle management to compliances",
+        "desc": "Login to access your HR data.",
     },
     {
         "name": "Gusto",
@@ -212,7 +212,7 @@ var access_portals_list = [
         "name": "Slack",
         "link": "https://slack.com/intl/en-in/get-started#/createnew",
         "logo": "https://storage.googleapis.com/kido-assets/Screenshot%20from%202022-08-24%2020-16-25.png",
-        "desc": "Slack is a messaging program designed specifically for the office, but has also been adopted for personal use.",
+        "desc": "Login to access slack.",
     }
 ];
 
