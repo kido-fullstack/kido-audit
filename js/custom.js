@@ -1556,7 +1556,8 @@ $(document).on('click','#create_new_user',function(){
 
         // var user_det = requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols)});
         var user_det = requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols),'nursery_ids':JSON.stringify(nursery_ids)});
-        if(parseInt(user_det)){
+        // console.log(+user_det.slice(1,-1));
+        if(parseInt(+user_det.slice(1,-1))){
             swal({  title: 'Submitted.',type: "success",text: "User Saved Successfully."}).then(function() {
                 window.location.reload();
             });
