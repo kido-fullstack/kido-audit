@@ -73,6 +73,7 @@
                                     <th class="border-top-0">User</th>
                                     <th class="border-top-0">Email</th>
                                     <th class="border-top-0">Level</th>
+                                    <th class="border-top-0">Status</th>
                                     <!-- <th class="border-top-0">Sent Before</th>
                                     <th class="border-top-0">Select All</th> -->
                                 </tr>
@@ -127,8 +128,8 @@
         var user_dets = JSON.parse(requester(server,"POST",{'api':'get_users','filter':filter}));
         var trs = "";
         $.each(user_dets, function (k, v) {
-            // var status = v.status == 1 ? '<span class="text-success">Active</span>' : '<span class="text-danger">InActive</span>';
-            trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td><td>'+userLevels[v.level]+'</td></tr>';
+            var status = v.status == 1 ? '<span class="text-success">Active</span>' : '<span class="text-danger">InActive</span>';
+            trs += '<tr uid="'+v.id+'" class="user_list_tr"><td class="name">'+v.name+'</td> <td class="email">'+v.email+'</td><td>'+userLevels[v.level]+'</td><td>'+status+'</td></tr>';
         });
         $('#created_user_list').find("tbody").append(trs);
         $('#created_user_list').DataTable();
