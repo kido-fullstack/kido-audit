@@ -213,6 +213,36 @@ var access_portals_list = [
         "link": "https://slack.com/intl/en-in/get-started#/createnew",
         "logo": "https://storage.googleapis.com/kido-assets/Screenshot%20from%202022-08-24%2020-16-25.png",
         "desc": "Login to access slack.",
+    },
+    {
+        "name": "Child Care Licensing Log In",
+        "link": "https://www.dfps.state.tx.us/Child_Care/Search_Texas_Child_Care/ppFacilityLogin.asp",
+        "logo": "https://storage.googleapis.com/kido-assets/health%26services.png",
+        "desc": "Login to access slack.",
+    },
+    {
+        "name": "Lunch Direct",
+        "link": "https://lunchdirect.com/",
+        "logo": "https://storage.googleapis.com/kido-assets/lunch_direct.png",
+        "desc": "Login to access slack.",
+    },
+    {
+        "name": "TECPDS",
+        "link": "https://public.tecpds.org/",
+        "logo": "https://storage.googleapis.com/kido-assets/tecpds.png",
+        "desc": "Login to access slack.",
+    },
+    {
+        "name": "CLI ENGAGE",
+        "link": "https://public.cliengage.org/",
+        "logo": "https://storage.googleapis.com/kido-assets/engage.png",
+        "desc": "Login to access slack.",
+    },
+    {
+        "name": "Amazon",
+        "link": "https://www.amazon.com/businessprime",
+        "logo": "https://storage.googleapis.com/kido-assets/amazon.png",
+        "desc": "Login to access slack.",
     }
 ];
 
