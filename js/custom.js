@@ -152,7 +152,7 @@ var access_portals_list = [
         "name": "KidoschoolBOT",
         "link": "https://kidoschool.gyde.ai/#/login",
         "logo": "images/kido_logo.png",
-        "desc": "Login to complete child assessments and view reports.",
+        "desc": "Access to the assessment bot is thru the lesson plans.",
     },
     {
         "name": "Kido Learning",
