@@ -204,7 +204,7 @@ var access_portals_list = [
     },
     {
         "name": "Clockshark",
-        "link": "clockshark.com/login",
+        "link": "https://clockshark.com/login",
         "logo": "https://storage.googleapis.com/kido-assets/Screenshot%20from%202022-08-24%2020-21-50.png",
         "desc": "View the locations of each member on your team in real-time, during work hours.",
     },
