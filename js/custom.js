@@ -1871,7 +1871,7 @@ $(document).on('click','.save_user_detail',function(){
     // $("tr.access_card").each(function () {
         var userName = mytr.find(".username").val();
         var password = mytr.find(".password").val();
-        var name = mytr.find(".access_name").text();
+        var name = mytr.find(".access_name").attr("access_name_index");
         var link = mytr.find(".access_link").attr("href");
         if(userName === "" || password === ""){
             alert("plz enter username and password");
