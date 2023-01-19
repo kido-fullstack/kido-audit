@@ -243,6 +243,12 @@ var access_portals_list = [
         "link": "https://www.amazon.com/businessprime",
         "logo": "https://storage.googleapis.com/kido-assets/amazon.png",
         "desc": "Login to access slack.",
+    },
+    {
+        "name": "Fathom",
+        "link": "https://app.fathomhq.com/login",
+        "logo": "https://storage.googleapis.com/kido-assets/fathom.png",
+        "desc": "Login to access Fathom.",
     }
 ];
 
@@ -454,7 +460,7 @@ function requester(end_point, req_type, params) {
 function valid_email(tstr) {
 
     var err = false;
-    var spcl_chrs = /[ `!#$%^&*()+\-=\[\]{};':"\\|,<>\/?~]/;
+    var spcl_chrs = /[ `!#$%^&*()\-=\[\]{};':"\\|,<>\/?~]/;
     var atToLast = (tstr.substring(tstr.indexOf("@"),tstr.length));
     if(tstr.length){
         ((tstr.split(".").length - 1) < 1  || (tstr.split(".").length - 1) > 3 ) ? err = true : false; //---- . COUNT ONLY 1 OR 2 OR 3
