@@ -120,14 +120,21 @@
         },
         "Physical Development": {
             "Term 1": "cycle-1-cycle-2",
-            "Term 2": "physical-development-cycle-3"
+            "Term 2": "physical-development-cycle-3",
+            "Term 3": "physical-development-term-3-cycle-5-and-6",
+            "Baby Infant Mindfulness": "baby-and-infant-yoga",
+            "Baby Infant Yoga": "kido-baby-and-infant-mindfulness"
         },
-        "Additional Explorer Days":"key-additional-explorer-day-projects"
+        "Additional Explorer Days":"key-additional-explorer-day-projects",
+        "Camps":{
+         "Summer camp lesson plan India": "summer-camp-lesson-plans-india"
+        }
     },
     "KEY - Training, Development, and Teacher Support": {
         "Train the trainer":"key-curriculum-train-the-trainer-sessions",
         "Professional Development Program":"key-professional-development-program",
         "Additional Files":"key-editing-tutorial-for-teachers",
+        "Kido classroom setup (points to remember)": "kido-classroom-setup-points-to-remember",
         "KEY Curriculum Resources":{
             "KEY - Teacher Guidance for Curriculum Implementation":"key-teacher-guidance-for-curriculum-implementation",
             "Resource Activities":"resources-activities",
@@ -148,7 +155,9 @@
             "Pathfinders":"k2",
             "Seekers":"k3"
         },
-        "KEY - Hindi Worksheets India":"key-hindi-worksheets-india1"
+        "KEY - Hindi Worksheets India":"key-hindi-worksheets-india1",
+        "Spanish weeked classes":"key-saturday-spanish-lesson-plans"
+        
     },
     "Kido Schools Alphabet Sound Learning":
     {
