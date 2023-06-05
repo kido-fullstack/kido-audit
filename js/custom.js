@@ -2145,3 +2145,14 @@ window.onhashchange = function() {
     (link != "") ? cust_navigate(link) : false;
 }
     
+
+$(document).on('click','#selAllManls',function(){
+
+    $.getJSON( "manula_links.json?v=0.3", function(manuals) {
+        var mnul_vals =  structured_accordian(manuals,"added_manuals",false);
+        $.each(mnul_vals, function (k, v) {
+            $("#manuals input[lnk='" + v.value + "']").prop('checked', true);
+        });
+    });
+
+});
