@@ -839,10 +839,10 @@ $(document).on('click','#user_inspect_submit',function(){
     // console.log(obj);
     if(!errs.length){
         var timestamp = new Date().toISOString().slice(0, 19).replace('T', ' ');
-        var cols = JSON.stringify(["inspection_id","user_id","status","submission","submitted_on","updated_on"]);
+        var cols = JSON.stringify(["inspection_id","user_id","status","cycle","submission","submitted_on","updated_on"]);
         var submission = JSON.stringify(obj);
         var data = [];
-        data.push([form_id,user.id,"1",submission,timestamp,timestamp]);
+        data.push([form_id,user.id,"1",$("#chngInspCycl").val(),submission,timestamp,timestamp]);
         // console.log(submission);
         var inspects = requester(server,"POST",{'api':'save_tab',"tbl_name":"inspection_assign",'cols':cols,'data':JSON.stringify(data)});
         // console.log(inspects);
@@ -2156,3 +2156,14 @@ $(document).on('click','#selAllManls',function(){
     });
 
 });
+
+$(document).on('change','#chngInspProg',function(){
+
+    $("#inspTabSec").css("visibility","visible");
+    $("#inspects_filter").find("input").val($(this).val());
+    // $("#inspects_filter").find("input").focus();
+    // $("#inspects_filter").find("input").trigger("keydown");
+    $("#inspects_filter").find("input").keyup();
+
+});
+
