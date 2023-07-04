@@ -15028,3 +15028,7 @@ input.form-control[type=file]{
         padding: 0 1%;
         cursor: pointer;
     }
+    .navigate{
+        cursor: pointer;
+    }
+      

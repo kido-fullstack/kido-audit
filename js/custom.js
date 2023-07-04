@@ -685,7 +685,7 @@ function updt_insp_tbl() {
         trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+sch+'</td>'
         +' <td class="tab_action">'
         + edt_opt
-        +' <a href="#view_submittions" onclick="form_id='+v.id+';" >  View Submissions </a>'
+        +' <a href="#view_submissions" onclick="form_id='+v.id+';" >  View Submissions </a>'
         + snd_opt+'</td>'
         +' </tr>';
         // trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+v.due_date+'</td> <td>'+v.assigned_to+'</td> <td>'+stat+'</td><td>'+sch+'</td><td> <a href="#edit_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
@@ -694,16 +694,20 @@ function updt_insp_tbl() {
     $("#inspect_trs").append(trs);
 }
 
-function teach_insp_tbl() {
+function teach_insp_tbl(inspType = "") {
 
     var filter = JSON.stringify({"user_id":user.id});
     var inspects = JSON.parse(requester(server,"POST",{'api':'get_user_inspect','filter':filter}));
     $("#inspect_trs").empty();
     var i = 1;
     var trs = "";
+    // console.log(inspType);
     $.each(inspects, function (k, v) {
         // const d = new Date(v.added_on);
         // let dt_txt = d.toDateString();
+        if(inspType == 'other' && ((v.title).indexOf("-Curriculum Audit") != -1)  ){
+            return;
+        }
         const d = new Date();
         var dt_txt = nearestWeekDay(d,5).toDateString();
         v.schedule == '4' ? dt_txt = new Date(d.getFullYear(), d.getMonth(), 0).toDateString(): false;
