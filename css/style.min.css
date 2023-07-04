@@ -15031,4 +15031,7 @@ input.form-control[type=file]{
     .navigate{
         cursor: pointer;
     }
+    .navigate:hover{
+        color: #007bb6;
+    }
       
