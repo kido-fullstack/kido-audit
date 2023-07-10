@@ -340,7 +340,10 @@ $(function() {
                 });
                 // cust_navigate("basic-table");
             }else{
-                swal({  title: 'Error',type:"error",text: "Not saved."});
+                // swal({  title: 'Error',type:"error",text: "Not saved."});
+                swal({  title: 'Saved',type:"success",text: "Sent"}).then(function() {
+                    $(".modal-content button.close").trigger("click");
+                });
             }
         }else{
             swal({  title: 'Form saved',type:"success",text: "Sent to no user."}).then(function() {
