@@ -850,8 +850,8 @@ $(document).on('click','#user_inspect_submit',function(){
         var submission = JSON.stringify(obj);
         var data = [];
         data.push([form_id,user.id,"1",$("#chngInspCycl").val(),submission,timestamp,timestamp]);
-        // console.log(submission);
-        var inspects = requester(server,"POST",{'api':'save_tab',"tbl_name":"inspection_assign",'cols':cols,'data':JSON.stringify(data)});
+        // console.log(tmp);
+        var inspects = requester(server,"POST",{'api':'user_submit_inspect',"tbl_name":"inspection_assign",'cols':cols,'data':JSON.stringify(data),"username":user.name,"inspname":$("#formTitle").text()});
         // console.log(inspects);
         if (parseInt(inspects)) {
             // alert("Thank you for submitting your responses.");
