@@ -2191,5 +2191,3 @@ function getFormData(div_id,data) {
 
         });
 }
-
-form-control
