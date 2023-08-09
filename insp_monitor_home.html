@@ -1,36 +1,135 @@
+<style>
+  /* Tab container styles */
+  .tab-container {
+    display: flex;
+  }
+
+  /* Tab button styles */
+  .tab-button {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #f1f1f1;
+    font-size: 16px;
+  }
+
+  .tab-button:hover {
+    background-color: #ddd;
+    border-color: #ddd;
+  }
+
+  .tab-button.active {
+    background-color: #fff;
+    border-bottom: 2px solid #007bff;
+  }
+
+  /* Tab content styles */
+  .tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  .modal {
+    /* display: none; */
+    position: fixed;
+    /* z-index: 1; */
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    /* width: 100%; */
+    /* max-width: 400px; */
+    position: relative;
+  }
+
+  .close {
+    color: #000;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    border: none;
+    background: none;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+  }
+  /* Style for the larger dropdowns */
+  select {
+    font-size: 16px; /* Adjust the font size as needed */
+    padding: 6px; /* Adjust the padding as needed */
+    width: 200px; /* Adjust the width as needed */
+  }
+
+  /* Style for the submit button */
+  button {
+    font-size: 16px; /* Adjust the font size as needed */
+    padding: 7px 15px; /* Adjust the padding as needed */
+    background-color: #00356b; /* Blue color for the button */
+    /* color: #ffffff; White color for the text */
+    border: none;
+    cursor: pointer;
+  }
+
+  /* Apply hover effect for the button */
+  button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+  }
+</style>
 
 <div class="page-wrapper">
-    <!-- ============================================================== -->
-    <!-- Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <div class="page-breadcrumb bg-white">
-        <div class="row align-items-center">
-            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 style="color: #405a67;text-align: center;font-weight: 800;">Inspection Monitor</h4>
-            </div>
-            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                <!-- <div class="d-md-flex">
+  <!-- ============================================================== -->
+  <!-- Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <div class="page-breadcrumb bg-white">
+    <div class="row align-items-center">
+      <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <h4 style="color: #405a67; text-align: center; font-weight: 800">
+          Inspection Monitor
+        </h4>
+      </div>
+      <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+        <!-- <div class="d-md-flex">
                     <ol class="breadcrumb ms-auto">
                         <li><a href="#" class="fw-normal">Dashboard</a></li>
                     </ol>
                     <a href="#" target="_blank" class="btn btn-danger  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">Add new template</a>
                 </div> -->
-            </div>
-        </div>
-        <!-- /.col-lg-12 -->
+      </div>
     </div>
+    <!-- /.col-lg-12 -->
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- End Bread crumb and right sidebar toggle -->
+  <!-- ============================================================== -->
+  <!-- ============================================================== -->
+  <!-- Container fluid  -->
+  <!-- ============================================================== -->
+  <div class="container-fluid">
     <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- Three charts -->
     <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Container fluid  -->
-    <!-- ============================================================== -->
-    <div class="container-fluid">
-        <!-- ============================================================== -->
-        <!-- Three charts -->
-        <!-- ============================================================== -->
-        <div class="row justify-content-center">
-            <!-- <div class="col-lg-4 col-md-12">
+    <div class="row justify-content-center">
+      <!-- <div class="col-lg-4 col-md-12">
                 <a href="#create_clus_user" class="text-dark">
                     <div class="white-box analytics-info shadow">
                         <h3 class="box-title">Teachers Enrolled</h3>
@@ -60,27 +159,302 @@
                     </div>
                 </a>
             </div> -->
-            <div class="col-lg-4 col-md-12">
-                <a href="#basic-table" class="text-dark">
-                <div class="white-box analytics-info shadow">
-                    <h3 class="box-title link_color">Inspections Available</h3>
-                    <ul class="list-inline two-part d-flex align-items-center mb-0">
-                        <li>
-                            <div id="tecaher-icon">
-                                <i class="fas fa-search fa-3x text-info mt-3"></i>
-                            </div>
-                        </li>
-                        <li class="ms-auto"><span class="counter text-info" id="inspections-cnt">6</span>
-                        </li>
-                    </ul>
-                </div>
-                </a>
-            </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="container">
+          <div class="row">
+            <a href="#basic-table" class="text-dark">
+              <div class="white-box analytics-info shadow">
+                <h3 class="box-title link_color">Inspections Available</h3>
+                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                  <li>
+                    <div id="tecaher-icon">
+                      <i class="fas fa-search fa-3x text-info mt-3"></i>
+                    </div>
+                  </li>
+                  <li class="ms-auto">
+                    <span class="counter text-info" id="inspections-cnt"
+                      >6</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </a>
+          </div>
         </div>
-          <!-- ============================================================== -->
-        <!-- Three charts -->
-        <!-- ============================================================== -->
-        <!-- <div class="row justify-content-center">
+      </div>
+
+      <div class="col-lg-12 col-md-12 m-5">
+        <form action="#" method="post" id="myForm">
+          <label for="month" class="h4">Select Month:</label>
+          <select id="month" name="month">
+            <script>
+              const months = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ];
+              const monthSelect = document.getElementById("month");
+
+              for (let i = 0; i < months.length; i++) {
+                const option = document.createElement("option");
+                const monthValue = (i + 1).toString().padStart(2, "0");
+                option.value = monthValue;
+                option.textContent = months[i];
+                monthSelect.appendChild(option);
+              }
+
+              // Set the stored value for month, if available
+              const storedMonth = localStorage.getItem("selectedMonth");
+              if (storedMonth) {
+                monthSelect.value = storedMonth;
+              } else {
+                // Set a default month if no stored value
+                monthSelect.value = "01"; // For January
+              }
+            </script>
+          </select>
+
+          <label for="year" class="h4">Select Year:</label>
+          <select id="year" name="year">
+            <script>
+              const startYear = 2022; // Set the starting year
+              const endYear = 2025;
+              const yearSelect = document.getElementById("year");
+
+              for (let year = startYear; year <= endYear; year++) {
+                const option = document.createElement("option");
+                option.value = year;
+                option.textContent = year;
+                yearSelect.appendChild(option);
+              }
+
+              // Set the stored value for year, if available
+              const storedYear = localStorage.getItem("selectedYear");
+              if (storedYear) {
+                yearSelect.value = storedYear;
+              } else {
+                // Set a default year if no stored value
+                yearSelect.value = startYear;
+              }
+            </script>
+          </select>
+
+          <button type="button" onclick="getInspctData()" class="text-white">Submit</button>
+        </form>
+      </div>
+
+      <script>
+        const form = document.getElementById("myForm");
+        const submitButton = form.querySelector("button");
+
+        // submitButton.addEventListener("click", function () {
+        //   // Get selected month and year values
+        //   const selectedMonth = document.getElementById("month").value;
+        //   const selectedYear = document.getElementById("year").value;
+
+        //   // // Store the selected values in localStorage
+        //   // localStorage.setItem("selectedMonth", selectedMonth);
+        //   // localStorage.setItem("selectedYear", selectedYear);
+
+        //   // Do something with the selected values, e.g., display them
+        //   // alert(`Selected Month: ${selectedMonth}\nSelected Year: ${selectedYear}`);
+        // });
+      </script>
+
+      <div class="tab-container">
+        <button class="tab-button" onclick="openTab('verifiedTab')">
+          Verified
+        </button>
+        <button class="tab-button" onclick="openTab('pendingTab')">
+          Pending
+        </button>
+      </div>
+
+      <div class="tab-content" id="verifiedTab">
+        <h2>Verified Inspections</h2>
+        <table class="table mt-4 bg-white" id="verifiedTable">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">User</th>
+              <th scope="col">Title</th>
+              <th scope="col">user id</th>
+              <th scope="col">Year</th>
+              <th scope="col">Submitted On</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table content will be added dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tab-content" id="pendingTab">
+        <h2>Pending Inspections</h2>
+        <table class="table mt-4 bg-white" id="pendingTable">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">User</th>
+              <th scope="col">Title</th>
+              <th scope="col">user id</th>
+              <th scope="col">Year</th>
+              <!-- <th scope="col">Submitted On</th> -->
+              <!-- <th scope="col">Action</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table content will be added dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal" id="modalContainer" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Submissions Form</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onclick="closeModal()"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div id="submission"></div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                onclick="closeModal()"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script>
+
+        var dataArray = [];
+
+        function getInspctData() {
+
+          var filter = JSON.stringify({
+            month: $("#month").val(),
+            year: $("#year").val(),
+          });
+          dataArray = JSON.parse(
+            requester(server, "POST", {
+              api: "get_inspect_for_verify",
+              filter: filter,
+            })
+          );
+
+          showTable("verifiedTable", "1");
+
+        }
+
+        // console.log(dataArray);
+
+        getInspctData();
+
+        // Function to open the selected tab
+        function openTab(tabName) {
+          const tabContents = document.getElementsByClassName("tab-content");
+          for (let i = 0; i < tabContents.length; i++) {
+            tabContents[i].style.display = "none";
+          }
+
+          const tabButtons = document.getElementsByClassName("tab-button");
+          for (let i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].classList.remove("active");
+          }
+
+          document.getElementById(tabName).style.display = "block";
+          document
+            .querySelector(`button[onclick="openTab('${tabName}')"]`)
+            .classList.add("active");
+
+          if (tabName === "verifiedTab") {
+            showTable("verifiedTable", "1");
+          } else if (tabName === "pendingTab") {
+            showTable("pendingTable", "2");
+          }
+        }
+
+        // Function to generate the table for the "Pending" and "Verified" tabs
+        function showTable(tableId, status) {
+          const tableBody = document.querySelector(`#${tableId} tbody`);
+          let tableHTML = "";
+
+          dataArray.forEach((item, index) => {
+            if (item.status === status) {
+              tableHTML += `
+                <tr>
+                  <td>${index + 1}</td>
+                  <td>${item.name}</td>
+                  <td>${item.title}</td>
+                  <td>${item.user_id}</td>
+                  <td>${item.year}</td>
+                  <td>${item.submitted_on}</td>
+                  ${
+                    status === "1"
+                      ? `<td><button class="text-white" onclick="viewAlert('${item.name}', '${item.user_id}')">View</button></td>`
+                      : ""
+                  }
+                </tr>
+              `;
+            }
+          });
+          tableBody.innerHTML = tableHTML;
+        }
+
+        // Function to display the modal on button click
+        function viewAlert(userName, userId) {
+          const user = dataArray.find((item) => item.user_id === userId);
+          const modalText = document.getElementById("submission");
+          // modalText.formRender({dataType: 'json',formData: user.formData});x`
+          getFormData("submission", user.submission);
+          // modalText.textContent = `User ID: ${userId}.
+          //   Inspection: ${user.inspection}, Submit Date: ${user.submitDate}.`;
+          const modalContainer = document.getElementById("modalContainer");
+          modalContainer.style.display = "block";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+          const modalContainer = document.getElementById("modalContainer");
+          modalContainer.style.display = "none";
+        }
+
+        // Open the appropriate default tab based on the status
+        if (dataArray.some((item) => item.status === "2")) {
+          openTab("pendingTab");
+        } else {
+          openTab("verifiedTab");
+        }
+      </script>
+
+      <!-- ============================================================== -->
+      <!-- Three charts -->
+      <!-- ============================================================== -->
+      <!-- <div class="row justify-content-center">
             <div class="col-lg-8 col-md-8">
                 <div class="white-box analytics-info shadow">
                     <div class="d-flex justify-content-between mb-2">
@@ -103,10 +477,10 @@
                 </div>
             </div>
         </div> -->
-         <!-- ============================================================== -->
-        <!-- PRODUCTS YEARLY SALES -->
-        <!-- ============================================================== -->
-        <!-- <div class="row">
+      <!-- ============================================================== -->
+      <!-- PRODUCTS YEARLY SALES -->
+      <!-- ============================================================== -->
+      <!-- <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <div class="white-box">
                     <h3 class="box-title">Products Yearly Sales</h3>
@@ -128,10 +502,10 @@
                 </div>
             </div>
         </div> -->
-        <!-- ============================================================== -->
-        <!-- RECENT SALES -->
-        <!-- ============================================================== -->
-        <!-- <div class="row">
+      <!-- ============================================================== -->
+      <!-- RECENT SALES -->
+      <!-- ============================================================== -->
+      <!-- <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12">
                 <div class="white-box">
                     <div class="d-md-flex mb-3">
@@ -220,47 +594,49 @@
     <!-- ============================================================== -->
     <!-- footer -->
     <!-- ============================================================== -->
-    <footer class="footer text-center"> 2023 © Kido | All rights reserved <a
-            href="https://kido.school/en/">Kido School</a>
+    <footer class="footer text-center">
+      2023 © Kido | All rights reserved
+      <a href="https://kido.school/en/">Kido School</a>
     </footer>
     <!-- ============================================================== -->
     <!-- End footer -->
     <!-- ============================================================== -->
-</div>
+  </div>
 
-<!-- <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
+  <!-- <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
 <script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
 <script src="js/pages/dashboards/dashboard1.js"></script> -->
 
-<script>
-// var form = new FormData();
-// form.append("api", "cluster_admin_analytics");
-// var cluster_data = local_get('logged_user');
-// var cluster_id  = cluster_data.clutrs[0].cluster_id;
-// // console.log(cluster_id);
-// form.append("cluster_id", cluster_id);
-// form.append("country", cluster_data.country);
+  <script>
+    // var form = new FormData();
+    // form.append("api", "cluster_admin_analytics");
+    // var cluster_data = local_get('logged_user');
+    // var cluster_id  = cluster_data.clutrs[0].cluster_id;
+    // // console.log(cluster_id);
+    // form.append("cluster_id", cluster_id);
+    // form.append("country", cluster_data.country);
 
-// var settings = {
-//   "url": server,
-//   "method": "POST",
-//   "timeout": 0,
-//   "processData": false,
-//   "mimeType": "multipart/form-data",
-//   "contentType": false,
-//   "data": form
-// };
+    // var settings = {
+    //   "url": server,
+    //   "method": "POST",
+    //   "timeout": 0,
+    //   "processData": false,
+    //   "mimeType": "multipart/form-data",
+    //   "contentType": false,
+    //   "data": form
+    // };
 
-// $.ajax(settings).done(function (response) {
-//   var resp = JSON.parse(response);
-//     if(resp.length){
-//         $("#teacher-cnt").text(resp[0].users);
-//         $("#nurseries-cnt").text(resp[0].nurseries);
-//         $("#inspections-cnt").text(resp[0].inspections);
-//     }else{
-//         $("#teacher-cnt").text(0);
-//         $("#nurseries-cnt").text(0);
-//         $("#inspections-cnt").text(0);
-//     }
-// });
-</script>
+    // $.ajax(settings).done(function (response) {
+    //   var resp = JSON.parse(response);
+    //     if(resp.length){
+    //         $("#teacher-cnt").text(resp[0].users);
+    //         $("#nurseries-cnt").text(resp[0].nurseries);
+    //         $("#inspections-cnt").text(resp[0].inspections);
+    //     }else{
+    //         $("#teacher-cnt").text(0);
+    //         $("#nurseries-cnt").text(0);
+    //         $("#inspections-cnt").text(0);
+    //     }
+    // });
+  </script>
+</div>

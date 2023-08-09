@@ -9737,7 +9737,7 @@ Main sidebar
   width: 250px;
   height: 100%;
   top: 0px;
-  z-index: 10;
+  z-index: 1;
   padding-top: 64px;
   background: #fff;
   -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);

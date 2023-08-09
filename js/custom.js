@@ -2167,3 +2167,22 @@ $(document).on('change','#chngInspProg',function(){
 
 });
 
+function getFormData(div_id,data) {
+
+    $("#"+div_id).formRender({dataType: 'json',formData: data});
+    $("#"+div_id).find("input,select,textarea").prop("disabled",true);
+
+        $("#"+div_id).find("label").each(function () {
+
+            if(  ($(this).text() == "No") && ($(this).siblings().prop('checked') == true)  ){
+
+                $(this).css({"color":"red"});
+
+                $(this).siblings().css({"outline":"rgb(255, 71, 71) solid 4px"});
+
+            }
+
+        });
+}
+
+form-control

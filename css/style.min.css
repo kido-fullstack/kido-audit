@@ -13676,7 +13676,7 @@ select.form-select.form-control-line {
     width: 240px;
     height: 100%;
     top: 0px;
-    z-index: 10;
+    z-index: 1;
     padding-top: 64px;
     background: #fff;
     -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
@@ -14896,7 +14896,7 @@ input.form-control[type=file]{
 /*  */
 
   input[type="checkbox"]:disabled:checked{
-    outline: rgb(71, 245, 71) solid 2px;
+    outline: rgb(71, 245, 71) solid 4px;
     /* border: 2px solid green; */
   }
 
