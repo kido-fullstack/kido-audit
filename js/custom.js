@@ -340,7 +340,10 @@ $(function() {
                 });
                 // cust_navigate("basic-table");
             }else{
-                swal({  title: 'Error',type:"error",text: "Not saved."});
+                // swal({  title: 'Error',type:"error",text: "Not saved."});
+                swal({  title: 'Saved',type:"success",text: "Sent"}).then(function() {
+                    $(".modal-content button.close").trigger("click");
+                });
             }
         }else{
             swal({  title: 'Form saved',type:"success",text: "Sent to no user."}).then(function() {
@@ -685,7 +688,7 @@ function updt_insp_tbl() {
         trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+sch+'</td>'
         +' <td class="tab_action">'
         + edt_opt
-        +' <a href="#view_submittions" onclick="form_id='+v.id+';" >  View Submissions </a>'
+        +' <a href="#view_submissions" onclick="form_id='+v.id+';" >  View Submissions </a>'
         + snd_opt+'</td>'
         +' </tr>';
         // trs += '<tr><td>'+i+'</td> <td>'+v.title+'</td> <td>'+v.due_date+'</td> <td>'+v.assigned_to+'</td> <td>'+stat+'</td><td>'+sch+'</td><td> <a href="#edit_form" onclick="function hi(){form_id='+v.id+'};hi()" >  view </a></td> </tr>';
@@ -694,16 +697,20 @@ function updt_insp_tbl() {
     $("#inspect_trs").append(trs);
 }
 
-function teach_insp_tbl() {
+function teach_insp_tbl(inspType = "") {
 
     var filter = JSON.stringify({"user_id":user.id});
     var inspects = JSON.parse(requester(server,"POST",{'api':'get_user_inspect','filter':filter}));
     $("#inspect_trs").empty();
     var i = 1;
     var trs = "";
+    // console.log(inspType);
     $.each(inspects, function (k, v) {
         // const d = new Date(v.added_on);
         // let dt_txt = d.toDateString();
+        if(inspType == 'other' && ((v.title).indexOf("-Curriculum Audit") != -1)  ){
+            return;
+        }
         const d = new Date();
         var dt_txt = nearestWeekDay(d,5).toDateString();
         v.schedule == '4' ? dt_txt = new Date(d.getFullYear(), d.getMonth(), 0).toDateString(): false;
@@ -843,8 +850,8 @@ $(document).on('click','#user_inspect_submit',function(){
         var submission = JSON.stringify(obj);
         var data = [];
         data.push([form_id,user.id,"1",$("#chngInspCycl").val(),submission,timestamp,timestamp]);
-        // console.log(submission);
-        var inspects = requester(server,"POST",{'api':'save_tab',"tbl_name":"inspection_assign",'cols':cols,'data':JSON.stringify(data)});
+        // console.log(tmp);
+        var inspects = requester(server,"POST",{'api':'user_submit_inspect',"tbl_name":"inspection_assign",'cols':cols,'data':JSON.stringify(data),"username":user.name,"inspname":$("#formTitle").text()});
         // console.log(inspects);
         if (parseInt(inspects)) {
             // alert("Thank you for submitting your responses.");
