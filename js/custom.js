@@ -2813,13 +2813,34 @@ function getFormData(div_id, data) {
   $("#" + div_id)
     .find("label")
     .each(function () {
-      if (
-        $(this).text() == "No" && 
-        $(this).siblings().prop("checked") == true
-      ) {
+      // console.log($(this).text());
+      if ($(this).text() == "No" && $(this).siblings().prop("checked") == true) {
         $(this).css({ color: "red" });
         $(this).siblings().css({ outline: "rgb(255, 71, 71) solid 4px" });
       }
+
+      var selSibl = $(this).siblings('select');
+
+      if(selSibl.length){
+
+        console.log(selSibl.val());
+        
+        if(selSibl.find(":selected").text().length < 10 && selSibl.find(":selected").text() != "Yes") {
+
+          // $(this).css({ color: "red" });
+          $(this).siblings().css({ outline: "rgb(255, 255, 71) solid 3px" });
+  
+        }
+
+      }
+
+      // if( ($(this).siblings('select').val()).length > 10 && $(this).siblings('select').val() != "Yes") {
+      //   $(this).css({ color: "red" });
+      //   $(this).siblings().css({ outline: "rgb(255, 71, 71) solid 4px" });
+      // }
+
+
+
     //   var len = $(".form-control").siblings().css("color", "red");
     //   $(this).text() === "N/A";
     });
