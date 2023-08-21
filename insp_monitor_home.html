@@ -229,7 +229,7 @@
                 monthSelect.value = storedMonth;
               } else {
                 // Set the current month as default
-                const currentMonth = new Date().getMonth();
+                const currentMonth = new Date().getMonth()+1;
                 monthSelect.value = currentMonth;
               }
 
