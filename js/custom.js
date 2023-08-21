@@ -1267,7 +1267,8 @@ function user_submits_display(form_id, user_id) {
 
       if (v.type == "select" || v.type == "checkbox-group") {
         $.each(v.values, function (k1, v1) {
-          v1.selected ? (submit_score += parseInt(v1.value)) : false;
+          // console.log(parseInt(v1.value));
+          v1.selected ?  (isNaN(parseInt(v1.value)) ? false : (submit_score += parseInt(v1.value))) : false;
         });
       }
 
@@ -1277,6 +1278,8 @@ function user_submits_display(form_id, user_id) {
         );
       }
     });
+    // console.log(submit_score);
+
     //------------CONDITIONAL QUESTION----------------
     $("#form_div").find(".child").closest("div").css("display", "none");
     $("#form_div")
