@@ -311,7 +311,7 @@
               <th scope="col">#</th>
               <th scope="col">User</th>
               <th scope="col">Title</th>
-              <!-- <th scope="col">user id</th> -->
+              <th scope="col">Cycle</th>
               <!-- <th scope="col">Year</th> -->
               <th scope="col">Submitted On</th>
               <th scope="col">Action</th>
@@ -331,10 +331,8 @@
               <th scope="col">#</th>
               <th scope="col">User</th>
               <th scope="col">Title</th>
-              <th scope="col">user id</th>
-              <th scope="col">Year</th>
+              <th scope="col">Cycle</th>
               <th scope="col">Submitted On</th>
-              <!-- <th scope="col">Action</th> -->
             </tr>
           </thead>
           <tbody>
@@ -347,7 +345,7 @@
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Submissions Form</h5>
+              <h5 class="modal-title" id="submsnTitl"></h5>
               <button
                 type="button"
                 class="btn-close"
@@ -398,9 +396,50 @@
             requester(server, "POST", {
               api: "get_inspect_for_verify",
               filter: filter,
-            })
+            }
+            )
           );
-          showAudtDetPop("pendingTable", "1");
+                  var vrfdTabHTML = "";
+                  var pendTabHTML = "";
+
+                  dataArray.forEach((item, index) => {
+                    var TabHTML = "";
+                    TabHTML += `
+                        <tr>
+                          <td>${index + 1}</td>
+                          <td>${item.name}</td>
+                          <td>${item.title}</td>
+                          <td>${item.cycle}</td>
+                          <td>${item.submitted_on}</td>
+                          ${
+                            (item.status === "1"
+                              ? `<td><button class="text-white" onclick="viewInspPop('${item.submission_id}','${item.user_id}')">View</button></td>`
+                              : "")
+                          }
+                        </tr>
+                      `;
+                    if (item.status == "1") {
+                      pendTabHTML += TabHTML;
+                    }
+                    if (item.status == "2") {
+                      vrfdTabHTML += TabHTML;
+                    }
+                  });
+
+                  // console.log(pendTabHTML);
+
+                  $("#verifiedTable tbody").html(vrfdTabHTML);
+                  $("#pendingTable tbody").html(pendTabHTML);
+
+                  // verifiedTab.innerHTML = vrfdTabHTML;
+                  // pendingTab.innerHTML = pendTabHTML;
+
+              //   },
+              //   error: function (x, t, m) {
+              //     console.log(x,t,m);
+              //   },
+              // })
+          // showAudtDetTabs("pendingTable", "1");
         }
 
         // console.log($id);
@@ -420,15 +459,14 @@
           }
 
           document.getElementById(tabName).style.display = "block";
-          document
-            .querySelector(`button[onclick="openTab('${tabName}')"]`)
+          document.querySelector(`button[onclick="openTab('${tabName}')"]`)
             .classList.add("active");
 
-          if (tabName === "pendingTab") {
-            showAudtDetPop("pendingTable", "1");
-          } else if (tabName === "verifiedTab") {
-            showAudtDetPop("verifiedTable", "2");
-          }
+          // if (tabName === "pendingTab") {
+          //   showAudtDetTabs("pendingTable", "1");
+          // } else if (tabName === "verifiedTab") {
+          //   showAudtDetTabs("verifiedTable", "2");
+          // }
         }
 
 
@@ -447,207 +485,25 @@
               data: data,
             })
           );
-          showAudtDetPop("verifiedTable", "2");
+          // showAudtDetTabs("verifiedTable", "2");
 
           const modalContainer = document.getElementById("modalContainer");
           modalContainer.style.display = "none";
           window.location.reload();
         }
-        // Open the appropriate default tab based on the status
-        // if (dataArray.some((item) => item.status === "2")) {
-        //   openTab("pendingTab");
-        // } else {
-        //   openTab("verifiedTab");
-        // }
+
         openTab("pendingTab");
       </script>
 
-      <!-- ============================================================== -->
-      <!-- Three charts -->
-      <!-- ============================================================== -->
-      <!-- <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-8">
-                <div class="white-box analytics-info shadow">
-                    <div class="d-flex justify-content-between mb-2">
-                        <h3 class="box-title">Cluster Name</h3>
-                        <h5>Mumbai-cluster</h5>
-                    </div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <h3 class="box-title">Country</h3>
-                        <h5>India</h5>
-                    </div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <h3 class="box-title">State</h3>
-                        <h5>Maharashtra</h5>
-                    </div>
-                    <div class="d-flex justify-content-between mb-2">
-                        <h3 class="box-title">City</h3>
-                        <h5>Mumbai</h5>
-                    </div>
-                    
-                </div>
-            </div>
-        </div> -->
-      <!-- ============================================================== -->
-      <!-- PRODUCTS YEARLY SALES -->
-      <!-- ============================================================== -->
-      <!-- <div class="row">
-            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                <div class="white-box">
-                    <h3 class="box-title">Products Yearly Sales</h3>
-                    <div class="d-md-flex">
-                        <ul class="list-inline d-flex ms-auto">
-                            <li class="ps-3">
-                                <h5><i class="fa fa-circle me-1 text-info"></i>Mac</h5>
-                            </li>
-                            <li class="ps-3">
-                                <h5><i class="fa fa-circle me-1 text-inverse"></i>Windows</h5>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="ct-visits" style="height: 405px;">
-                        <div class="chartist-tooltip" style="top: -17px; left: -12px;"><span
-                                class="chartist-tooltip-value">6</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-      <!-- ============================================================== -->
-      <!-- RECENT SALES -->
-      <!-- ============================================================== -->
-      <!-- <div class="row">
-            <div class="col-md-12 col-lg-12 col-sm-12">
-                <div class="white-box">
-                    <div class="d-md-flex mb-3">
-                        <h3 class="box-title mb-0">Recent sales</h3>
-                        <div class="col-md-3 col-sm-4 col-xs-6 ms-auto">
-                            <select class="form-select shadow-none row border-top">
-                                <option>March 2021</option>
-                                <option>April 2021</option>
-                                <option>May 2021</option>
-                                <option>June 2021</option>
-                                <option>July 2021</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table no-wrap">
-                            <thead>
-                                <tr>
-                                    <th class="border-top-0">#</th>
-                                    <th class="border-top-0">Name</th>
-                                    <th class="border-top-0">Status</th>
-                                    <th class="border-top-0">Date</th>
-                                    <th class="border-top-0">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td class="txt-oflo">Elite admin</td>
-                                    <td>SALE</td>
-                                    <td class="txt-oflo">April 18, 2021</td>
-                                    <td><span class="text-success">$24</span></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="txt-oflo">Real Homes WP Theme</td>
-                                    <td>EXTENDED</td>
-                                    <td class="txt-oflo">April 19, 2021</td>
-                                    <td><span class="text-info">$1250</span></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="txt-oflo">Ample Admin</td>
-                                    <td>EXTENDED</td>
-                                    <td class="txt-oflo">April 19, 2021</td>
-                                    <td><span class="text-info">$1250</span></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td class="txt-oflo">Medical Pro WP Theme</td>
-                                    <td>TAX</td>
-                                    <td class="txt-oflo">April 20, 2021</td>
-                                    <td><span class="text-danger">-$24</span></td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td class="txt-oflo">Hosting press html</td>
-                                    <td>SALE</td>
-                                    <td class="txt-oflo">April 21, 2021</td>
-                                    <td><span class="text-success">$24</span></td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td class="txt-oflo">Digital Agency PSD</td>
-                                    <td>SALE</td>
-                                    <td class="txt-oflo">April 23, 2021</td>
-                                    <td><span class="text-danger">-$14</span></td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td class="txt-oflo">Helping Hands WP Theme</td>
-                                    <td>MEMBER</td>
-                                    <td class="txt-oflo">April 22, 2021</td>
-                                    <td><span class="text-success">$64</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
-    <!-- ============================================================== -->
-    <!-- End Container fluid  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
     <footer class="footer text-center">
       2023 © Kido | All rights reserved
       <a href="https://kido.school/en/">Kido School</a>
     </footer>
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
   </div>
 
-  <!-- <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
-<script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-<script src="js/pages/dashboards/dashboard1.js"></script> -->
 
   <script>
-    // var form = new FormData();
-    // form.append("api", "cluster_admin_analytics");
-    // var cluster_data = local_get('logged_user');
-    // var cluster_id  = cluster_data.clutrs[0].cluster_id;
-    // // console.log(cluster_id);
-    // form.append("cluster_id", cluster_id);
-    // form.append("country", cluster_data.country);
 
-    // var settings = {
-    //   "url": server,
-    //   "method": "POST",
-    //   "timeout": 0,
-    //   "processData": false,
-    //   "mimeType": "multipart/form-data",
-    //   "contentType": false,
-    //   "data": form
-    // };
-
-    // $.ajax(settings).done(function (response) {
-    //   var resp = JSON.parse(response);
-    //     if(resp.length){
-    //         $("#teacher-cnt").text(resp[0].users);
-    //         $("#nurseries-cnt").text(resp[0].nurseries);
-    //         $("#inspections-cnt").text(resp[0].inspections);
-    //     }else{
-    //         $("#teacher-cnt").text(0);
-    //         $("#nurseries-cnt").text(0);
-    //         $("#inspections-cnt").text(0);
-    //     }
-    // });
   </script>
 </div>
