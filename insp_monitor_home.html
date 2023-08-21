@@ -400,8 +400,7 @@
               filter: filter,
             })
           );
-
-          showTable("pendingTable", "1");
+          showAudtDetPop("pendingTable", "1");
         }
 
         // console.log($id);
@@ -426,46 +425,12 @@
             .classList.add("active");
 
           if (tabName === "pendingTab") {
-            showTable("pendingTable", "1");
+            showAudtDetPop("pendingTable", "1");
           } else if (tabName === "verifiedTab") {
-            showTable("verifiedTable", "2");
+            showAudtDetPop("verifiedTable", "2");
           }
         }
 
-        // Function to generate the table for the "Pending" and "Verified" tabs
-        function showTable(tableId, status) {
-          const tableBody = document.querySelector(`#${tableId} tbody`);
-          let tableHTML = "";
-
-          dataArray.forEach((item, index) => {
-            if (item.status === status) {
-              tableHTML += `
-                <tr>
-                  <td>${index + 1}</td>
-                  <td>${item.name}</td>
-                  <td>${item.title}</td>
-                  <td>${item.submitted_on}</td>
-                  ${
-                    (status === "1"
-                      ? `<td><button class="text-white" onclick="viewAlert('${item.submission_id}','${item.user_id}')">View</button></td>`
-                      : "")
-                  }
-                </tr>
-              `;
-            }
-          });
-          tableBody.innerHTML = tableHTML;
-        }
-
-        // Function to display the modal on button click
-        function viewAlert(submissionId, userId) {
-          selFormId = submissionId;
-          const user = dataArray.find((item) => item.user_id === userId);
-          const modalText = document.getElementById("submission");
-          getFormData("submission", user.submission);
-          const modalContainer = document.getElementById("modalContainer");
-          modalContainer.style.display = "block";
-        }
 
         // Function to close the modal
         function closeModal() {
@@ -482,7 +447,7 @@
               data: data,
             })
           );
-          showTable("verifiedTable", "2");
+          showAudtDetPop("verifiedTable", "2");
 
           const modalContainer = document.getElementById("modalContainer");
           modalContainer.style.display = "none";

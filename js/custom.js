@@ -2848,3 +2848,47 @@ function getFormData(div_id, data) {
     //   $(this).text() === "N/A";
     });
 }
+
+
+function showAudtDetPop(tableId, status) {
+  const tableBody = document.querySelector(`#${tableId} tbody`);
+  let tableHTML = "";
+
+  dataArray.forEach((item, index) => {
+    if (item.status === status) {
+      tableHTML += `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${item.name}</td>
+          <td>${item.title}</td>
+          <td>${item.submitted_on}</td>
+          ${
+            (status === "1"
+              ? `<td><button class="text-white" onclick="viewInspPop('${item.submission_id}','${item.user_id}')">View</button></td>`
+              : "")
+          }
+        </tr>
+      `;
+    }
+  });
+  tableBody.innerHTML = tableHTML;
+}
+
+function viewInspPop(submissionId, userId) {
+  var selSubmsn = {};
+  dataArray.forEach((item, index) => {
+
+    if(item.user_id == userId && item.submission_id == submissionId){
+      selSubmsn = item.submission;
+    }
+  });
+
+  const modalText = document.getElementById("submission");
+  getFormData("submission", selSubmsn);
+  const modalContainer = document.getElementById("modalContainer");
+  modalContainer.style.display = "block";
+}
+
+
+
+
