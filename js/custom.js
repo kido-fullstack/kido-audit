@@ -103,7 +103,7 @@ var access_portals_list = [
   },
   {
     name: "Kido Famly App",
-    link: "https://app.famly.co/#/login",
+    link: "https://kidoapps.co/#/login",
     logo: "https://storage.googleapis.com/kido-assets/famly_logo.png",
     desc: "Login to manage your nursery/preschool and communicate with parents.",
   },
