@@ -163,5 +163,67 @@
     {
         "Kido Schools Alphabet Sound Learning":"kido-schools-alphabet-sound-learning1",
         "Gesture Video":"gesture-video"
+    },
+    "India Corporate Centre Curriculum":{
+        "Pathfinders":{
+            "Month 1":  "kido-village-nursery-month-1-restored-20230829115823",
+            "Month 2":  "kido-village-nursery-month-2-restored-20230829115823",
+            "Month 3":  "kido-village-nursery-month-3-restored-20230829115823",
+            "Month 4":  "kido-village-nursery-month-4-restored-20230829115823",
+            "Month 5":  "kido-village-nursery-month-5-restored-20230829115823",
+            "Month 6":  "kido-village-nursery-month-6-restored-20230829115823",
+            "Month 7":  "kido-village-nursery-month-7-restored-20230829115823",
+            "Month 8":  "kido-village-nursery-month-8-restored-20230829115823",
+            "Month 9":  "kido-village-nursery-month-9-restored-20230829115823",
+            "Month 10": "kido-village-nursery-month-10-restored-20230829115823"
+        },
+        "Seekers":{
+            "Month 1": "kido-village-lower-kg-month-1-restored-20230829120913",
+            "Month 2": "kido-village-lower-kg-month-2-restored-20230829120913",
+            "Month 3": "kido-village-lower-kg-month-3-restored-20230829120913",
+            "Month 4": "kido-village-lower-kg-month-4-restored-20230829120913",
+            "Month 5": "kido-village-lower-kg-month-5-restored-20230829120913",
+            "Month 6": "kido-village-lower-kg-month-6-restored-20230829120913",
+            "Month 7": "kido-village-lower-kg-month-7-restored-20230829120913",
+            "Month 8": "kido-village-lower-kg-month-8-restored-20230829120913",
+            "Month 9": "kido-village-lower-kg-month-9-restored-20230829120913",
+            "Month 10":"kido-village-lower-kg-month-10-restored-20230829120913"
+        },
+        "Poineers":{
+            "Month 1": "kido-village-upper-kg-month-1-restored-20230829121807",
+            "Month 2": "kido-village-upper-kg-month-2-restored-20230829121807",
+            "Month 3": "kido-village-upper-kg-month-3-restored-20230829121807",
+            "Month 4": "kido-village-upper-kg-month-4-restored-20230829121807",
+            "Month 5": "kido-village-upper-kg-month-5-restored-20230829121807",
+            "Month 6": "kido-village-upper-kg-month-6-restored-20230829121807",
+            "Month 7": "kido-village-upper-kg-month-7-restored-20230829121807",
+            "Month 8": "kido-village-upper-kg-month-8-restored-20230829121807",
+            "Month 9": "kido-village-upper-kg-month-9-restored-20230829121807",
+            "Month 10":"kido-village-upper-kg-month-10-restored-20230829121807"
+        },
+        "Adventurers":{
+            "Month 1": "kido-village-playgroup-month-1-restored-20230829123317",
+            "Month 2": "kido-village-playgroup-month-2-restored-20230829123317",
+            "Month 3": "kido-village-playgroup-month-3-restored-20230829123317",
+            "Month 4": "kido-village-playgroup-month-4-restored-20230829123317",
+            "Month 5": "kido-village-playgroup-month-5-restored-20230829123317",
+            "Month 6": "kido-village-playgroup-month-6-restored-20230829123317",
+            "Month 7": "kido-village-playgroup-month-7-restored-20230829123317",
+            "Month 8": "kido-village-playgroup-month-8-restored-20230829123317",
+            "Month 9": "kido-village-playgroup-month-9-restored-20230829123317",
+            "Month 10":"kido-village-playgroup-month-10-restored-20230829123317"            
+        },
+        "Experimenters":{
+            "Month 1": "kido-village-playgroup-month-1-restored-20230829123317",
+            "Month 2": "kido-village-playgroup-month-2-restored-20230829123317",
+            "Month 3": "kido-village-playgroup-month-3-restored-20230829123317",
+            "Month 4": "kido-village-playgroup-month-4-restored-20230829123317",
+            "Month 5": "kido-village-playgroup-month-5-restored-20230829123317",
+            "Month 6": "kido-village-playgroup-month-6-restored-20230829123317",
+            "Month 7": "kido-village-playgroup-month-7-restored-20230829123317",
+            "Month 8": "kido-village-playgroup-month-8-restored-20230829123317",
+            "Month 9": "kido-village-playgroup-month-9-restored-20230829123317",
+            "Month 10":"kido-village-playgroup-month-10-restored-20230829123317"
+        }
     }
 }
