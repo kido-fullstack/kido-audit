@@ -2793,6 +2793,7 @@ window.onhashchange = function () {
 $(document).on("click", "#selAllManls", function () {
   $.getJSON("manula_links.json?v=0.3", function (manuals) {
     var mnul_vals = structured_accordian(manuals, "added_manuals", false);
+    local_set("user_manula_links",mnul_vals);
     $.each(mnul_vals, function (k, v) {
       $("#manuals input[lnk='" + v.value + "']").prop("checked", true);
     });
