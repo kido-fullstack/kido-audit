@@ -1473,7 +1473,7 @@ $(document).on("click", "#manuals .ls3", function () {
   }
 });
 
-$(document).on("click", ".ls_val", function () {
+function updtLinkVals() {
   var out_obj = {};
   $("input.ls_val:checked").each(function () {
     var ind = $(this).attr("ind");
@@ -1503,6 +1503,11 @@ $(document).on("click", ".ls_val", function () {
       }
     });
   });
+  return out_obj;
+}
+
+$(document).on("click", ".ls_val", function () {
+  var out_obj = updtLinkVals();
   structured_accordian(out_obj, "added_manuals", false);
   local_set("user_manula_links", out_obj);
   // console.log(out_obj);
@@ -2791,12 +2796,14 @@ window.onhashchange = function () {
 };
 
 $(document).on("click", "#selAllManls", function () {
-  $.getJSON("manula_links.json?v=0.3", function (manuals) {
+  $.getJSON("manula_links.json?v=0.5", function (manuals) {
     var mnul_vals = structured_accordian(manuals, "added_manuals", false);
-    local_set("user_manula_links",mnul_vals);
     $.each(mnul_vals, function (k, v) {
       $("#manuals input[lnk='" + v.value + "']").prop("checked", true);
     });
+    var out_obj = updtLinkVals();
+    console.log(out_obj);
+    local_set("user_manula_links", out_obj);
   });
 });
 
