@@ -97,7 +97,7 @@ var access_portals_list = [
   {
     name: "Manula",
     display_name: "Lesson Plans & Operations Manuals",
-    link: "/teacher_dashboard.html#teacher_dashboard_home",
+    link: "/teacher_dashboard.html#user_manula_links",
     logo: "images/manula-icon.png",
     desc: "Manula is super-easy to use manual creation software, for writing, formatting and publishing online instruction manuals.",
   },
