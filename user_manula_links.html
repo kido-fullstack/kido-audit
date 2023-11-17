@@ -24,11 +24,11 @@ small{color: #bbb;}
         <div id="manuals" class="col-lg-3">
         </div>
         <div id="link_content" class="col-lg-9">
-            <iframe id="target_out" src="https://www.kandelaschools.com/kido-village-playgroup-month-2?domain=kidovillage" frameborder="0">
+            <iframe id="target_out" src="https://www.kidofranchise.co/kido-village-playgroup-month-2?domain=kidovillage" frameborder="0">
 
             </iframe>
 
-            <!-- <iframe id="target_out" src="https://www.kandelaschools.com/kido-education-ltd-operations-manual-safeguarding" height="900" width="1300" >
+            <!-- <iframe id="target_out" src="https://www.kidofranchise.co/kido-education-ltd-operations-manual-safeguarding" height="900" width="1300" >
 
             </iframe> -->
         
@@ -45,12 +45,12 @@ small{color: #bbb;}
     // console.log(logged_user);
     // console.log(JSON.parse(user.manula_links));
     var out_obj = JSON.parse(user.manula_links);
-    var ser = 'https://www.kandelaschools.com/kido-education-ltd-operations-manual-safeguarding';
+    var ser = 'https://www.kidofranchise.co/kido-education-ltd-operations-manual-safeguarding';
 
     if(out_obj){
         var mnul_vals =  structured_accordian(out_obj,"manuals",false);
-        // var manula_pre = logged_user.country == "1" ? "https://www.kandelaschools.com/" : "https://www.kandelaschools.com/manuals/kido-education/";
-        var manula_pre = "https://www.kandelaschools.com/";
+        // var manula_pre = logged_user.country == "1" ? "https://www.kidofranchise.co/" : "https://www.kidofranchise.co/manuals/kido-education/";
+        var manula_pre = "https://www.kidofranchise.co/";
         var def_lnk = "";
         // var manula_pre = "http://localhost/manula/";
         var kv_check = logged_user.country == 1 ? "?domain=kidovillage" : "";
@@ -61,7 +61,7 @@ small{color: #bbb;}
             def_lnk == "" ? def_lnk = v.value : false;
             elem.attr("lnk",lnk_val);
             elem.addClass("lnk_view");
-            // var lnk_val = "https://kandelaschools.com/"+v.value;
+            // var lnk_val = "https://kidofranchise.co/"+v.value;
             // var o_lnk  = open_lnk.clone();
             // console.log(o_lnk);
             // o_lnk.find('a').attr("href",lnk_val);

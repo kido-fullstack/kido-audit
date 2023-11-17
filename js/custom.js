@@ -2732,7 +2732,7 @@ $(document).on("click", ".lnk_view", function () {
 
   // $("#target_out").attr("src","");
   $.get(
-    "https://www.kandelaschools.com/user_sessions/" + user.id + ".txt",
+    "https://www.kidofranchise.co/user_sessions/" + user.id + ".txt",
     function (response, textStatus, xhr) {
       // console.log(lnk+"?sid="+response);
       // console.log(textStatus);
@@ -2748,7 +2748,7 @@ $(document).on("click", ".lnk_view", function () {
         $("#target_out").attr("src", lnn_fin);
       } else {
         console.log("Manula Not LoggedIn.");
-        // $("#target_out").attr("src","https://www.kandelaschools.com/user?action=logout");
+        // $("#target_out").attr("src","https://www.kidofranchise.co/user?action=logout");
       }
     }
   );
