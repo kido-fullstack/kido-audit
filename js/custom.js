@@ -263,6 +263,12 @@ var access_portals_list = [
     logo: "https://storage.googleapis.com/kido-assets/fathom.png",
     desc: "Login to access Fathom.",
   },
+  {
+    name: "Bynder",
+    link: "https://brandhub.kidoschools.com/login/",
+    logo: "https://storage.googleapis.com/kido-assets/bynder_logo.png",
+    desc: "Login to access Bynder.",
+  },
 ];
 
 $(function () {
