@@ -2016,6 +2016,11 @@ $(document).on("click", "#create_new_user", function () {
       cols.push("password");
     }
 
+    if ($("#password").length) {
+      data["password"] = $("#password").val();
+      cols.push("password");
+    }
+
     // var user_det = requester(server,"POST",{'api':'create_new_user','data':JSON.stringify(data),'cols':JSON.stringify(cols)});
     var user_det = requester(server, "POST", {
       api: "create_new_user",
